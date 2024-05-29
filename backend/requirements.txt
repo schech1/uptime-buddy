@@ -1,0 +1,2 @@
+Flask==3.0.3
+uptime-kuma-api==1.2.1
