@@ -45,9 +45,6 @@ After deploying the Docker container, open the Uptime Buddy app on your Apple Wa
 Uptime Kuma: A self-hosted monitoring tool to monitor uptime for websites, applications, and APIs.
 Uptime Kuma API: An API for Uptime Kuma, enabling integration with various applications.
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributing
 
