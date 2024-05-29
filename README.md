@@ -1,19 +1,20 @@
-# uptime-buddy
-Uptime monitoring on Apple Watch
+# Uptime Buddy
 
-# Installation via Docker
+Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. To utilize Uptime Buddy, you need to deploy a backend server that interacts with the app, leveraging the power of Uptime Kuma and Uptime Kuma API.
 
-After you installed the UptimeBuddy-App from Apple AppStore, you should deploy a backend for the app to talk to.
-This also requires that you have a running instance of uptime-kuma.
+## Installation via Docker
 
-## Docker compose
+Follow the steps below to set up the backend for Uptime Buddy using Docker.
+
+### Prerequisites
+Install the Uptime Buddy app from the Apple App Store on your Apple Watch.
+Ensure you have a running instance of Uptime Kuma.
+Docker Compose Configuration
+Create a docker-compose.yml file with the following content to deploy the backend:
 
 ```yaml
-version: '3.8'
-
 services:
   uptime-buddy-api:
-
     image: schech1/uptime-buddy-api:beta
     ports:
       - "5005:5005"
@@ -23,6 +24,35 @@ services:
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
 ```
 
-## Settings on the iOS-App
-After deploying the docker container, set the address of the service as the backend url.
-The container runs on port 5005.
+Replace the environment variables with your actual Uptime Kuma URL, username, and password.
+
+## Deploying the Backend
+Save the docker-compose.yml file.
+
+Run the following command in the directory containing the docker-compose.yml file:
+
+```sh
+docker-compose up -d
+```
+
+This command will pull the necessary Docker image and start the backend service on port 5005.
+
+## Settings on the iOS App
+After deploying the Docker container, open the Uptime Buddy app on your Apple Watch and configure the backend URL. Use the address of the server where you deployed the container, including the port (e.g., http://your-server-ip:5005).
+
+## Related Projects
+
+Uptime Kuma: A self-hosted monitoring tool to monitor uptime for websites, applications, and APIs.
+Uptime Kuma API: An API for Uptime Kuma, enabling integration with various applications.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contributing
+
+We welcome contributions! 
+
+## Support
+
+If you encounter any issues or have questions, please open an issue on our GitHub repository.
