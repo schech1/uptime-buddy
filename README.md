@@ -6,46 +6,14 @@ You can join the beta via TestFlight
 
 Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. To utilize Uptime Buddy, you need to deploy a backend server that interacts with the app, leveraging the power of Uptime Kuma and Uptime Kuma API.
 
-<style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-  }
-  .grid-item img {
-    width: 50%;
-    height: auto;
-  }
-</style>
-
-<div class="grid-container">
-  <div class="grid-item">
-    <img src="images/uptime-buddy-logo.png" alt="Uptime Buddy Logo">
-  </div>
-  <div class="grid-item">
-    <img src="images/apple-watch-uptime-buddy.png" alt="Apple Watch with Uptime Buddy">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-1.PNG" alt="Uptime Buddy Watch Screen">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-2.PNG" alt="Apple Watch with Uptime Buddy">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-3.PNG" alt="Apple Watch with Uptime Buddy">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-4.PNG" alt="Apple Watch with Uptime Buddy">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-5.PNG" alt="Apple Watch with Uptime Buddy">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-6.PNG" alt="Apple Watch with Uptime Buddy">
-  </div>
-  <div class="grid-item">
-    <img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy">
-  </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="images/uptime-buddy-1.PNG" alt="Uptime Buddy Watch Screen" style="width:30%;">
+  <img src="images/uptime-buddy-2.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-3.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-4.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-5.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-6.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 </div>
 
 
