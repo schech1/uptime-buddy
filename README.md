@@ -15,7 +15,8 @@ Create a docker-compose.yml file with the following content to deploy the backen
 ```yaml
 services:
   uptime-buddy-api:
-    image: schech1/uptime-buddy-api:beta
+    image: schech1/uptime-buddy-api:latest # x86
+    # image: schech1/uptime-buddy-api:latest-arm64 # arm64
     ports:
       - "5005:5005"
     environment:
@@ -38,12 +39,14 @@ docker-compose up -d
 This command will pull the necessary Docker image and start the backend service on port 5005.
 
 ## Settings on the iOS App
-After deploying the Docker container, open the Uptime Buddy app on your Apple Watch and configure the backend URL. Use the address of the server where you deployed the container, including the port (e.g., http://your-server-ip:5005).
+After deploying the Docker container, open the Uptime Buddy app on your Apple Watch and configure the backend URL. Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
 
 ## Related Projects
 
-Uptime Kuma: A self-hosted monitoring tool to monitor uptime for websites, applications, and APIs.
-Uptime Kuma API: An API for Uptime Kuma, enabling integration with various applications.
+This project is based on Uptime Kuma and uptime-kuma-api.
+
+[Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications, and APIs.
+[uptime-kuma.api](https://github.com/lucasheld/uptime-kuma-api): An API for Uptime Kuma, enabling integration with various applications.
 
 
 ## Contributing
