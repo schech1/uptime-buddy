@@ -6,6 +6,15 @@ You can join the beta via TestFlight
 
 Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. To utilize Uptime Buddy, you need to deploy a backend server that interacts with the app, leveraging the power of Uptime Kuma and Uptime Kuma API.
 
+![Uptime Buddy Watch Screen](images/uptime-buddy-1.png)
+![Apple Watch with Uptime Buddy](images/uptime-buddy-2.png)
+![Apple Watch with Uptime Buddy](images/uptime-buddy-3.png)
+![Apple Watch with Uptime Buddy](images/uptime-buddy-4.png)
+![Apple Watch with Uptime Buddy](images/uptime-buddy-5.png)
+![Apple Watch with Uptime Buddy](images/uptime-buddy-6.png)
+![Apple Watch with Uptime Buddy](images/uptime-buddy-ios.png)
+
+
 ## Installation via Docker
 
 Follow the steps below to set up the backend for Uptime Buddy using Docker.
