@@ -53,7 +53,8 @@ def get_beats(monitor_id):
     try:
         # Fetch the beats for the specified monitor ID
         heartbeats = api.get_monitor_beats(monitor_id, 12)
-        return jsonify(heartbeats)
+        last_10_heartbeats = heartbeats[-10:]
+        return jsonify(last_10_heartbeats)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
