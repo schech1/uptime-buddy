@@ -62,13 +62,13 @@ After deploying the Docker container, open the Uptime Buddy app on your Apple Wa
 
 This project is based on Uptime Kuma and uptime-kuma-api.
 
-[Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications, and APIs.
-[uptime-kuma.api](https://github.com/lucasheld/uptime-kuma-api): An API for Uptime Kuma, enabling integration with various applications.
+[Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications and services.
+[uptime-kuma.api](https://github.com/lucasheld/uptime-kuma-api): A Python API for Uptime Kuma.
 
 
 ## Contributing
 
-I welcome contributions! 
+Contributions are welcome.
 
 ## Support
 
