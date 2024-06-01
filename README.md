@@ -51,7 +51,8 @@ docker-compose up -d
 This command will pull the necessary Docker image and start the backend service on port 5005.
 
 ## Settings on the iOS App
-After deploying the Docker container, open the Uptime Buddy app on your Apple Watch and configure the backend URL. Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
+After deploying the Docker container, open the Uptime Buddy companion app on your iPhone and configure the backend URL.
+Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
 
 ## Related Projects
 
