@@ -4,7 +4,8 @@ Uptime Buddy is in beta testing phase.
 You can join the beta via TestFlight
 [https://testflight.apple.com/join/okTxZGX1](https://testflight.apple.com/join/okTxZGX1)
 
-Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. To utilize Uptime Buddy, you need to deploy a backend server that interacts with the app, leveraging the power of Uptime Kuma and Uptime Kuma API.
+Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
+Uptime Buddy, requires a backend REST API.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
   <img src="images/uptime-buddy-1.PNG" alt="Uptime Buddy Watch Screen" style="width:30%;">
@@ -19,12 +20,8 @@ Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep
 
 ## Installation via Docker
 
-Follow the steps below to set up the backend for Uptime Buddy using Docker.
-
-### Prerequisites
-Install the Uptime Buddy app from the Apple App Store on your Apple Watch.
-Ensure you have a running instance of Uptime Kuma.
-Docker Compose Configuration
+Follow the steps below to set up the backend for Uptime Buddy.
+## Docker Compose
 Create a `docker-compose.yml` file with the following content to deploy the backend:
 
 ```yaml
@@ -54,19 +51,20 @@ docker-compose up -d
 This command will pull the necessary Docker image and start the backend service on port 5005.
 
 ## Settings on the iOS App
-After deploying the Docker container, open the Uptime Buddy app on your Apple Watch and configure the backend URL. Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
+After deploying the Docker container, open the Uptime Buddy companion app on your iPhone and configure the backend URL.
+Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
 
 ## Related Projects
 
 This project is based on Uptime Kuma and uptime-kuma-api.
 
-[Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications, and APIs.
-[uptime-kuma.api](https://github.com/lucasheld/uptime-kuma-api): An API for Uptime Kuma, enabling integration with various applications.
+[Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications and services.
+[uptime-kuma.api](https://github.com/lucasheld/uptime-kuma-api): A Python API for Uptime Kuma.
 
 
 ## Contributing
 
-I welcome contributions! 
+Contributions are welcome.
 
 ## Support
 
