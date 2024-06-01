@@ -44,5 +44,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            schech1/uptime-buddy-api:${{ env.NEW_VERSION }}
+            schech1/uptime-buddy-api:${{ env.VERSION }}
             schech1/uptime-buddy-api:latest
