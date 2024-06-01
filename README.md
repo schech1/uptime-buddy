@@ -4,7 +4,8 @@ Uptime Buddy is in beta testing phase.
 You can join the beta via TestFlight
 [https://testflight.apple.com/join/okTxZGX1](https://testflight.apple.com/join/okTxZGX1)
 
-Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. To utilize Uptime Buddy, you need to deploy a backend server that interacts with the app, leveraging the power of Uptime Kuma and Uptime Kuma API.
+Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
+Uptime Buddy, requires a backend REST API.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
   <img src="images/uptime-buddy-1.PNG" alt="Uptime Buddy Watch Screen" style="width:30%;">
