@@ -27,8 +27,7 @@ Create a `docker-compose.yml` file with the following content to deploy the back
 ```yaml
 services:
   uptime-buddy-api:
-    image: schech1/uptime-buddy-api:latest # x86
-    # image: schech1/uptime-buddy-api:latest-arm64 # arm64
+    image: schech1/uptime-buddy-api:latest
     ports:
       - "5005:5005"
     environment:
@@ -36,6 +35,8 @@ services:
       - USERNAME=YOUR_UPTIME_KUMA_USERNAME
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
 ```
+The docker image supports `amd64` and `arm64` architecture.
+Tested on Raspberry Pi 5 and Intel NUC 10.
 
 Replace the environment variables with your actual Uptime Kuma URL, username, and password.
 
@@ -53,6 +54,7 @@ This command will pull the necessary Docker image and start the backend service 
 ## Settings on the iOS App
 After deploying the Docker container, open the Uptime Buddy companion app on your iPhone and configure the backend URL.
 Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
+<img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
 ## Related Projects
 
