@@ -54,6 +54,7 @@ This command will pull the necessary Docker image and start the backend service 
 ## Settings on the iOS App
 After deploying the Docker container, open the Uptime Buddy companion app on your iPhone and configure the backend URL.
 Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
+
 <img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
 ## Related Projects
