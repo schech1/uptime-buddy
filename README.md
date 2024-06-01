@@ -56,7 +56,7 @@ After deploying the Docker container, open the Uptime Buddy companion app on you
 Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
 
 <br>
-<img src="" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+<img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
 ## Related Projects
 
