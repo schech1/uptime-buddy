@@ -20,12 +20,7 @@ Uptime Buddy, requires a backend REST API.
 
 ## Installation via Docker
 
-Follow the steps below to set up the backend for Uptime Buddy using Docker.
-
-### Prerequisites
-Install the Uptime Buddy app from the Apple App Store on your Apple Watch.
-you need to have a running instance of Uptime Kuma.
-
+Follow the steps below to set up the backend for Uptime Buddy.
 ## Docker Compose
 Create a `docker-compose.yml` file with the following content to deploy the backend:
 
