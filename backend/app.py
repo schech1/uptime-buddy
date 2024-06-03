@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from uptime_kuma_api import UptimeKumaApi
+from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
 
@@ -71,7 +71,7 @@ def online_hosts():
             for heartbeat in last_10_heartbeats:
                 print("hb")
                 print(heartbeat)
-                if heartbeat.get("status") == "<MonitorStatus.UP: 1>":
+                if heartbeat.get("status") == MonitorStatus.UP:
                     print("+1")
                     online_count += 1
             total_count += 1
