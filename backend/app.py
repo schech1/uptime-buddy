@@ -71,7 +71,7 @@ def online_hosts():
             for heartbeat in last_10_heartbeats:
                 print("hb")
                 print(heartbeat)
-                if heartbeat.get("status") == "1":
+                if heartbeat.get("status") == "<MonitorStatus.UP: 1>":
                     print("+1")
                     online_count += 1
             total_count += 1
