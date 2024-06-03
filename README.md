@@ -31,6 +31,11 @@ services:
       - USERNAME=YOUR_UPTIME_KUMA_USERNAME
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
 ```
+Docker run command
+```bash
+docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL -e USERNAME=YOUR_UPTIME_KUMA_USERNAME -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD schech1/uptime-buddy-api:latest
+
+```
 The docker image supports `amd64` and `arm64` architecture.
 Tested on Raspberry Pi 5 and Intel NUC 10.
 
