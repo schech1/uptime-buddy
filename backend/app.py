@@ -71,7 +71,7 @@ def online_hosts():
                 if last_heartbeat.get("status") == MonitorStatus.UP:
                     online_count += 1
             total_count += 1
-        return jsonify({"online_hosts": online_count, "total_monitors": total_count})
+        return jsonify({"on": online_count, "total": total_count})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
