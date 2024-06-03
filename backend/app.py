@@ -68,7 +68,7 @@ def online_hosts():
             heartbeats = api.get_monitor_beats(monitor.get("id"), 12)
             last_10_heartbeats = heartbeats[-10:]
             for heartbeat in last_10_heartbeats:
-                if heartbeat.get("status") == "<MonitorStatus.UP: 1>":
+                if heartbeat.get("status") == "1":
                     online_count += 1
             total_count += 1
         return jsonify({"online_hosts": online_count, "total_monitors": total_count})
