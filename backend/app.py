@@ -66,20 +66,15 @@ def online_hosts():
         monitors = api.get_monitors()
         for monitor in monitors:
             heartbeats = api.get_monitor_beats(monitor.get("id"), 12)
-            last_10_heartbeats = heartbeats[-10:]
-            print(last_10_heartbeats)
-            for heartbeat in last_10_heartbeats:
-                print("hb")
-                print(heartbeat)
-                if heartbeat.get("status") == MonitorStatus.UP:
-                    print("+1")
+            if heartbeats:
+                last_heartbeat = heartbeats[-1]  # Get the last heartbeat
+                if last_heartbeat.get("status") == MonitorStatus.UP:
                     online_count += 1
             total_count += 1
-            print(online_count)
-            print(total_count)
         return jsonify({"online_hosts": online_count, "total_monitors": total_count})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 
 @app.route('/monitor/<int:monitor_id>', methods=['GET'])
