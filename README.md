@@ -59,6 +59,18 @@ Use the address of the server where you deployed this container, including the p
 <br>
 <img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
+
+## The Apple Watch and iOS App
+
+Uptime Buddy consists of an iOS app and an Apple Watch app.
+The iOS app is needed to set up the backend adress.
+When the iOS app is installed, the Apple Watch app can be install via the Watch app of the iPhone.
+
+Uptime Buddy comes with Complication and SmartStack support.
+The current update frequency of the Widgets is 15 minutes.
+In future versions this will frequency will be individually adjustable, to extend battery life of the Apple Watch.
+
+
 ## Related Projects
 
 This project is based on Uptime Kuma and uptime-kuma-api.
