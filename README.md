@@ -16,6 +16,9 @@ Uptime Buddy, requires a backend REST API.
 
 ## Installation via Docker
 
+Uptime Buddy requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
+Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
+
 Follow the steps below to set up the backend for Uptime Buddy.
 ## Docker Compose
 Create a `docker-compose.yml` file with the following content to deploy the backend:
@@ -76,7 +79,7 @@ In future versions this will frequency will be individually adjustable, to exten
 This project is based on Uptime Kuma and uptime-kuma-api.
 
 [Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications and services.
-[uptime-kuma.api](https://github.com/lucasheld/uptime-kuma-api): A Python API for Uptime Kuma.
+[uptime-kuma-api](https://github.com/lucasheld/uptime-kuma-api): A Python API for Uptime Kuma.
 
 
 ## Contributing
