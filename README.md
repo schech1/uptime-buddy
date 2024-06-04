@@ -78,12 +78,18 @@ Uptime Buddy comes with Complication and SmartStack support.
 The current update frequency of the Widgets is 15 minutes.
 In future versions this will frequency will be individually adjustable, to extend battery life of the Apple Watch.
 
+## Data Privacy
+
+Uptime Buddy does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.
+The Apple Watch or iOS apps do not store any data locally on the devices, except the address of your backend. This is needed to keep
+setting over reboots. 
 
 ## Related Projects
 
 This project is based on Uptime Kuma and uptime-kuma-api.
 
 [Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications and services.
+
 [uptime-kuma-api](https://github.com/lucasheld/uptime-kuma-api): A Python API for Uptime Kuma.
 
 
