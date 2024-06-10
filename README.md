@@ -85,6 +85,15 @@ Uptime Buddy does not save, share or forward any data. The data that is fetched 
 The Apple Watch or iOS apps do not store any data locally on the devices, except the address of your backend. This is needed to keep
 setting over reboots. 
 
+## Next planned Updates
+
+- API token for backend authorization
+- UI improvements on iOS app
+- Better user feedback when backend is down
+
+
+
+
 ## Related Projects
 
 This project is based on Uptime Kuma and uptime-kuma-api.
