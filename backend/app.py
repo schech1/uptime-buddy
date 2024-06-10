@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, abort
 from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
@@ -6,21 +6,31 @@ import datetime
 
 app = Flask(__name__)
 
-
-
 # Configure Uptime Kuma API client
 UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
 USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
+TOKEN = os.getenv("TOKEN")
 
-if not all([UPTIME_KUMA_URL, USERNAME, PASSWORD]):
+if not all([UPTIME_KUMA_URL, USERNAME, PASSWORD, TOKEN]):
     raise ValueError("UPTIME_KUMA_URL, USERNAME, and PASSWORD environment variables must be provided.")
 
 # Initialize the Uptime Kuma API client
 api = UptimeKumaApi(UPTIME_KUMA_URL)
 api.login(USERNAME, PASSWORD)
 
+
+def require_api_token(func):
+    def wrapper(*args, **kwargs):
+        token = request.args.get('token')
+        if token != TOKEN:
+            abort(403)  # Forbidden
+        return func(*args, **kwargs)
+    wrapper.__name__ = func.__name__
+    return wrapper
+
 @app.route('/monitors', methods=['GET'])
+@require_api_token
 def get_monitors():
     try:
         monitors = api.get_monitors()
@@ -45,10 +55,13 @@ def get_monitors():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/status', methods=['GET'])
+@require_api_token
 def status():
     return jsonify({"status": "available"}), 200
 
+
 @app.route('/monitor/<int:monitor_id>/beats', methods=['GET'])
+@require_api_token
 def get_beats(monitor_id):
     try:
         # Fetch the beats for the specified monitor ID
@@ -58,7 +71,9 @@ def get_beats(monitor_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
 @app.route('/online_hosts', methods=['GET'])
+@require_api_token
 def online_hosts():
     try:
         online_count = 0
@@ -76,8 +91,8 @@ def online_hosts():
         return jsonify({"error": str(e)}), 500
 
 
-
 @app.route('/monitor/<int:monitor_id>', methods=['GET'])
+@require_api_token
 def get_monitor(monitor_id):
     try:
         # Fetch the monitor details

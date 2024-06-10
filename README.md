@@ -38,6 +38,7 @@ services:
       - UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL # e.g. http://192.168.1.34:3002/
       - USERNAME=YOUR_UPTIME_KUMA_USERNAME
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
+      - TOKEN=SECRET_TOKEN # Created by iOS-App
 ```
 Docker run command
 ```bash
