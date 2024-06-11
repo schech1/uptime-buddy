@@ -8,14 +8,14 @@ Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep
 Uptime Buddy, requires a backend REST API.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-2.JPG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-3.JPG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-5.JPG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-2.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-3.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-5.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-1.JPG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-4.JPG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-1.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-4.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 </div>
 
 
