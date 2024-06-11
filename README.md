@@ -28,7 +28,6 @@ Uptime Buddy, requires a backend REST API.
 Uptime Buddy requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
 Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
 
-
 Follow the steps below to set up the backend for Uptime Buddy.
 
 ## Prerequisites in the Uptime Buddy iOS-App
@@ -62,6 +61,9 @@ Replace the environment variables with your actual Uptime Kuma URL, username, an
 ## Deploying the Backend
 ### Using docker-compose
 
+*Do NOT deploy the backed yet.*
+*Start the iPhone-App first, to create your security token.*
+
 Save the docker-compose.yml file.
 
 Run the following command in the directory containing the docker-compose.yml file:
@@ -78,8 +80,12 @@ docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIM
 
 ```
 ## Settings on the iOS App
-After deploying the Docker container, open the Uptime Buddy companion app on your iPhone and configure the backend URL.
-Use the address of the server where you deployed this container, including the port (e.g., http://your-server-ip:5005).
+After deploying the Docker container, open the Uptime Buddy companion app on your iPhone.
+Follow the three steps to configure Uptime Buddy:
+
+- Generate the token
+- Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
+- Copy the generated token into your `docker-compose.yml` and deploy it.
 
 
 <br>
@@ -104,9 +110,9 @@ setting over reboots.
 
 ## Next planned Updates
 
-- API token for backend authorization
-- UI improvements on iOS app
-- Better user feedback when backend is down
+- [x] API token for backend authorization
+- [ ] UI improvements on iOS app
+- [ ] Better user feedback when backend is down
 
 
 
