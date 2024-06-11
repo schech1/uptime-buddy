@@ -10,12 +10,13 @@ Uptime Buddy, requires a backend REST API.
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
   <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
   <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
   <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 </div>
 
 
