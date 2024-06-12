@@ -103,6 +103,14 @@ Uptime Buddy comes with Complication and SmartStack support.
 The current update frequency of the Widgets is 15 minutes.
 In future versions this will frequency will be individually adjustable, to extend battery life of the Apple Watch.
 
+## Symbols on the Apple Watch
+
+The following is a list of available SF Symbols used to illustrate the monitor type:
+
+<img src="images/sfSymbols.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+
+
+
 ## Data Privacy
 
 Uptime Buddy does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.

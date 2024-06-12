@@ -20,6 +20,8 @@ api = UptimeKumaApi(UPTIME_KUMA_URL)
 api.login(USERNAME, PASSWORD)
 
 
+
+
 def require_api_token(func):
     def wrapper(*args, **kwargs):
         token = request.args.get('token')
@@ -47,7 +49,8 @@ def get_monitors():
                 "alias": monitor.get("name"),
                 "online": monitor.get("active"),
                 "interval": monitor.get("interval"),
-                "lastUpdate": iso_utc_now
+                "lastUpdate": iso_utc_now,
+                "type": monitor.get("type")
             }
             response.append(monitor_info)
         return jsonify(response)
