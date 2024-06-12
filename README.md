@@ -63,7 +63,9 @@ Replace the environment variables with your actual Uptime Kuma URL, username, an
 ### Using docker-compose
 
 *Do NOT deploy the backed yet.*
-*Start the iPhone-App first, to create your security token.*
+*Start the iPhone-App first, to create your security token as described below.*
+
+Continue here, when you have generated the token in the app.
 
 Save the docker-compose.yml file.
 
@@ -81,16 +83,18 @@ docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIM
 
 ```
 ## Settings on the iOS App
-After deploying the Docker container, open the Uptime Buddy companion app on your iPhone.
-Follow the three steps to configure Uptime Buddy:
+
+Before deploying the container, open the Uptime Buddy companion app on your iPhone.
+Follow a few steps to configure Uptime Buddy:
 
 - Generate the token
 - Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
 - Copy the generated token into your `docker-compose.yml` and deploy it.
-
+- Send the settings to Apple Watch.
 
 <br>
 <img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+
 
 
 ## The Apple Watch and iOS App
