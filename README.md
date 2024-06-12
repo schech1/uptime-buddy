@@ -107,29 +107,7 @@ In future versions this will frequency will be individually adjustable, to exten
 
 The following is a list of available SF Symbols used to illustrate the monitor type:
 
-- **Group**: ![person.3](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/person.3.png)
-- **HTTP**: ![network](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/network.png)
-- **Port**: ![cable.connector.horizontal](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/cable.connector.horizontal.png)
-- **Ping**: ![wave.3.right](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/wave.3.right.png)
-- **Keyword**: ![text.magnifyingglass](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/text.magnifyingglass.png)
-- **JSON Query**: ![curlybraces](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/curlybraces.png)
-- **gRPC Keyword**: ![dot.radiowaves.left.and.right](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/dot.radiowaves.left.and.right.png)
-- **DNS**: ![globe](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/globe.png)
-- **Docker**: ![shippingbox](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/shippingbox.png)
-- **Real Browser**: ![globe](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/globe.png)
-- **Push**: ![bell](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/bell.png)
-- **Steam**: ![gamecontroller](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/gamecontroller.png)
-- **Gamedig**: ![gamecontroller](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/gamecontroller.png)
-- **MQTT**: ![dot.radiowaves.right](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/dot.radiowaves.right.png)
-- **Kafka Producer**: ![rectangle.stack.person.crop](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/rectangle.stack.person.crop.png)
-- **SQL Server**: ![server.rack](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/server.rack.png)
-- **Postgres**: ![server.rack](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/server.rack.png)
-- **MySQL**: ![server.rack](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/server.rack.png)
-- **MongoDB**: ![leaf](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/leaf.png)
-- **Radius**: ![dot.radiowaves.forward](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/dot.radiowaves.forward.png)
-- **Redis**: ![memorychip](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/memorychip.png)
-- **Tailscale Ping**: ![wave.3.right](https://github.com/andrewtavis/sf-symbols-online/blob/master/glyphs_white/wave.3.right.png)
-
+<img src="images/sfSymbols.png" alt="Apple Watch with Uptime Buddy" style="width:80%;">
 
 
 
