@@ -105,7 +105,7 @@ In future versions this will frequency will be individually adjustable, to exten
 
 ## Symbols on the Apple Watch
 
-The following is a list of available SF Symbols used to illustrate the monitor type:
+The following SF Symbols are used to illustrate the monitor type:
 
 <img src="images/sfSymbols.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
