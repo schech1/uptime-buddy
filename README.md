@@ -103,6 +103,36 @@ Uptime Buddy comes with Complication and SmartStack support.
 The current update frequency of the Widgets is 15 minutes.
 In future versions this will frequency will be individually adjustable, to extend battery life of the Apple Watch.
 
+## Symbols on the Apple Watch
+
+The following is a list of available SF Symbols used to illustrate the monitor type:
+
+- **Group**: ![person.3](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/person.3)
+- **HTTP**: ![network](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/network)
+- **Port**: ![cable.connector.horizontal](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/cable.connector.horizontal)
+- **Ping**: ![wave.3.right](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/wave.3.right)
+- **Keyword**: ![text.magnifyingglass](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/text.magnifyingglass)
+- **JSON Query**: ![curlybraces](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/curlybraces)
+- **gRPC Keyword**: ![dot.radiowaves.left.and.right](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/dot.radiowaves.left.and.right)
+- **DNS**: ![globe](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/globe)
+- **Docker**: ![shippingbox](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/shippingbox)
+- **Real Browser**: ![globe](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/globe)
+- **Push**: ![bell](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/bell)
+- **Steam**: ![gamecontroller](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/gamecontroller)
+- **Gamedig**: ![gamecontroller](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/gamecontroller)
+- **MQTT**: ![dot.radiowaves.right](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/dot.radiowaves.right)
+- **Kafka Producer**: ![rectangle.stack.person.crop](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/rectangle.stack.person.crop)
+- **SQL Server**: ![server.rack](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/server.rack)
+- **Postgres**: ![server.rack](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/server.rack)
+- **MySQL**: ![server.rack](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/server.rack)
+- **MongoDB**: ![leaf](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/leaf)
+- **Radius**: ![dot.radiowaves.forward](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/dot.radiowaves.forward)
+- **Redis**: ![memorychip](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/memorychip)
+- **Tailscale Ping**: ![wave.3.right](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/symbols/wave.3.right)
+
+
+
+
 ## Data Privacy
 
 Uptime Buddy does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.
