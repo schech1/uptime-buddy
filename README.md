@@ -128,10 +128,13 @@ Uptime Mate does not save, share or forward any data. The data that is fetched f
 The Apple Watch or iOS apps do not store any data locally on the devices, except the address of your backend. This is needed to keep
 setting over reboots. 
 
-## Next planned Updates
+## Bucket list
 
 - [x] API token for backend authorization
-- [ ] UI improvements on iOS app
+- [x] UI improvements on iOS app
+- [x] More Symbols for monitor types
+- [x] Nice AppStore page
+- [ ] Better looking complications
 - [ ] Better user feedback when backend is down
 
 
