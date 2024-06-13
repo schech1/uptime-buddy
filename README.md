@@ -8,7 +8,7 @@ Uptime Mate is finally available in the Apple App Store!
 
 
 Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
-Uptime Mate, requires a lightweise docker backend to run.
+Uptime Mate, requires a lightweight docker backend to run.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
   <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
