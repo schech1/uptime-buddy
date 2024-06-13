@@ -73,8 +73,10 @@ services:
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
       - TOKEN=SECRET_TOKEN # Created by iOS-App
 ```
+Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
 
 The docker image supports `amd64` and `arm64` architecture.
+
 Tested on Raspberry Pi 5 and Intel NUC 10.
 
 Replace the environment variables with your actual Uptime Kuma URL, username, password and the generated token.
