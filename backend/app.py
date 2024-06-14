@@ -7,18 +7,21 @@ import datetime
 app = Flask(__name__)
 
 # Configure Uptime Kuma API client
-UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
-USERNAME = os.getenv("USERNAME")
-PASSWORD = os.getenv("PASSWORD")
-TOKEN = os.getenv("TOKEN")
+UPTIME_KUMA_URL =  "http://192.168.1.34:3002" # os.getenv("UPTIME_KUMA_URL") 
+USERNAME = "test" #os.getenv("USERNAME")
+PASSWORD = "123" # os.getenv("PASSWORD")
+TOKEN = "123" # os.getenv("TOKEN")
+MFA = True
 
 if not all([UPTIME_KUMA_URL, USERNAME, PASSWORD, TOKEN]):
     raise ValueError("UPTIME_KUMA_URL, USERNAME, and PASSWORD environment variables must be provided.")
 
-# Initialize the Uptime Kuma API client
-api = UptimeKumaApi(UPTIME_KUMA_URL)
-api.login(USERNAME, PASSWORD)
-
+if not MFA:
+    # Initialize the Uptime Kuma API client
+    api = UptimeKumaApi(UPTIME_KUMA_URL)
+    tkn = api.login(USERNAME, PASSWORD, token="612539")
+    print(tkn)
+    api.login_by_token(tkn)
 
 
 
@@ -30,6 +33,24 @@ def require_api_token(func):
         return func(*args, **kwargs)
     wrapper.__name__ = func.__name__
     return wrapper
+
+
+stored_tokens = {}
+
+@app.route('/mfasetup', methods=['POST'])
+def setup_mfa():
+    data = request.json
+    if not data or 'token' not in data:
+        return jsonify({"error": "Token is required"}), 400
+    
+    token = data['token']
+    print(token)
+    
+    user_id = 'user123'
+    stored_tokens[user_id] = token
+    
+    return jsonify({"message": "2FA token stored successfully"}), 200
+
 
 @app.route('/monitors', methods=['GET'])
 @require_api_token
