@@ -2,24 +2,37 @@
 
 **Uptime Buddy has been renamed to Uptime Mate.**
 
-Uptime Mate is finally available in the Apple App Store!
+<div align="center" style="display: flex; align-items: center; justify-content: center;">
+  <img alt="Uptime Mate" src="images/logo.png" style="width:8%; border-radius: 15%; margin-right: 10px;">
+  <h1 style="margin: 0;">Uptime Mate</h1>
+</div>
+<br>
 
-[![App Store](https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg)](https://apps.apple.com/de/app/uptime-mate/id6503297780)
+<p align="center">
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
+<a href="https://hub.docker.com/r/schech1/uptime-buddy-api"><img src="https://img.shields.io/docker/pulls/schech1/uptime-buddy-api" alt="Docker pulls"></a>
+<img alt="Static Badge" src="https://img.shields.io/badge/OS-WatchOS-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/OS-iOS-green">
+<a target="_blank" href="https://github.com/louislam/uptime-kuma"><img src="https://img.shields.io/github/last-commit/louislam/uptime-kuma" /></a>
+</p>
 
+<p align="center">
+<a href="https://apps.apple.com/de/app/uptime-mate/id6503297780"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store Link"></a>
+</p>
 
 Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
 Uptime Mate, requires a lightweise docker backend to run.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 </div>
 
 
