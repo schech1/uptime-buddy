@@ -80,8 +80,8 @@ services:
       - "5005:5005"
     environment:
       - UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL # e.g. http://192.168.1.34:3002/
-      - USERNAME=YOUR_UPTIME_KUMA_USERNAME
-      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
+      - USERNAME=YOUR_UPTIME_KUMA_USERNAME #Optional: remove line if auth is disabled in Uptime Kuma
+      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD #Optional: remove line if auth is disabled in Uptime Kuma
       - TOKEN=SECRET_TOKEN # Created by iOS-App
 ```
 Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
@@ -107,6 +107,9 @@ docker-compose up -d
 This command will pull the necessary Docker image and start the backend service on port 5005.
 
 ### Using docker run (alternative)
+
+*Hint: Remove `USERNAME` and `PASSWORD`, if auth is disabled in Uptime Kuma*
+
 ```bash
 docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL -e USERNAME=YOUR_UPTIME_KUMA_USERNAME -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD -e TOKEN=YOUR_TOKEN schech1/uptime-buddy-api:latest
 
