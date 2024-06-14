@@ -37,7 +37,6 @@ def get_monitors():
     try:
         monitors = api.get_monitors()
         response = []
-        print(monitors)
         for monitor in monitors:
              # Get the current time in UTC and format it as ISO 8601
             utc_now = datetime.datetime.utcnow()
