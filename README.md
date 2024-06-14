@@ -34,7 +34,7 @@ Uptime Mate, requires a lightweight docker backend to run.
 
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
-The current version (1.0.2) in the App Store in compatible with `schech1/uptime-buddy-api:latest` 
+The current version (1.0.3) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
@@ -145,7 +145,7 @@ setting over reboots.
 - [x] Nice AppStore page
 - [ ] Better looking complications
 - [ ] Better user feedback when backend is down
-
+- [ ] Communicate with Uptime Kuma directly (no additional docker container)
 
 
 
