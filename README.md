@@ -66,7 +66,7 @@ Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/loui
 
 Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
 
-If you have auth in Uptime Kuma disabled, remove the two lines from the compose-file entirely:
+If you disabled auth in Uptime Kuma, remove the two lines from the compose-file entirely:
 
 ```yaml
 - USERNAME=YOUR_UPTIME_KUMA_USERNAME
