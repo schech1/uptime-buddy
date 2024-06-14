@@ -1,9 +1,11 @@
-name: Build and Push Docker Image
+name: Build and Push Experimental Docker Image
 
 on:
   push:
     branches:
       - experimental
+    paths-ignore:
+      - '**.md'
   pull_request:
     branches:
       - experimental
@@ -31,7 +33,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
 
-      - name: Build and push Docker image
+      - name: Build and push Experimental Docker image
         uses: docker/build-push-action@v5
         with:
           context: ./backend

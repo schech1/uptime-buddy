@@ -1,42 +1,73 @@
-# Uptime Buddy
+# Uptime Mate (before Uptime Buddy)
 
-Uptime Buddy is in beta testing phase.
-You can join the beta via TestFlight
-[https://testflight.apple.com/join/okTxZGX1](https://testflight.apple.com/join/okTxZGX1)
+**Uptime Buddy has been renamed to Uptime Mate.**
 
-Uptime Buddy is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
-Uptime Buddy, requires a backend REST API.
+
+
+<p align="center">
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
+<a href="https://hub.docker.com/r/schech1/uptime-buddy-api"><img src="https://img.shields.io/docker/pulls/schech1/uptime-buddy-api" alt="Docker pulls"></a>
+<img alt="Static Badge" src="https://img.shields.io/badge/OS-WatchOS-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/OS-iOS-green">
+<a target="_blank" href="https://github.com/schech1/uptime-buddy"><img src="https://img.shields.io/github/last-commit/schech1/uptime-buddy" /></a>
+</p>
+
+<p align="center">
+<a href="https://apps.apple.com/de/app/uptime-mate/id6503297780"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store Link"></a>
+</p>
+
+Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
+Uptime Mate, requires a lightweight docker backend to run.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 </div>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+  <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 </div>
 
 
-## Important changes
-**Be sure to install the latest version of Uptime Buddy on your phone and app via TestFlight.**
-**Pull the latest docker image, because the authentication implementation had breaking changes!**
+## Backend Compatibility
+**Be sure to pull the latest docker image**
+The current version (1.0.3) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
-## Installation via Docker
 
-Uptime Buddy requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
-Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
+## Prerequisites in the Uptime Mate iOS-App
 
-Follow the steps below to set up the backend for Uptime Buddy.
-
-## Prerequisites in the Uptime Buddy iOS-App
-
-For authentication, start the Uptime Buddy iOS-App before you deploy the docker-container.
+For authentication, start the Uptime Mate iOS-App before you deploy the docker-container.
 On first start, a token will be generated and displayed in the app.
 Add the token to the docker-compose file or docker-run command.
 Then deploy the container as described below.
+
+
+## Settings on the iOS App
+Before deploying the Docker container, open the Uptime Mate companion app on your iPhone.
+Follow the these steps to configure Uptime Mate:
+
+- Generate the token
+- Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
+- Copy the generated token into your `docker-compose.yml` and deploy it.
+- Send the setting to the Apple Watch. It will display your monitors from Uptime Kuma in the Apple Watch app
+- Check out the Watch Face complications
+
+
+
+<img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+
+
+## Installation via Docker
+
+Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
+
+Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
+
+Follow the steps below to set up the backend for Uptime Mate.
+
 
 ## Docker Compose
 Create a `docker-compose.yml` file with the following content to deploy the backend:
@@ -53,17 +84,17 @@ services:
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
       - TOKEN=SECRET_TOKEN # Created by iOS-App
 ```
+Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
 
 The docker image supports `amd64` and `arm64` architecture.
+
 Tested on Raspberry Pi 5 and Intel NUC 10.
 
-Replace the environment variables with your actual Uptime Kuma URL, username, and password.
+Replace the environment variables with your actual Uptime Kuma URL, username, password and the generated token.
+
 
 ## Deploying the Backend
 ### Using docker-compose
-
-*Do NOT deploy the backed yet.*
-*Start the iPhone-App first, to create your security token.*
 
 Save the docker-compose.yml file.
 
@@ -80,49 +111,41 @@ This command will pull the necessary Docker image and start the backend service 
 docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL -e USERNAME=YOUR_UPTIME_KUMA_USERNAME -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD -e TOKEN=YOUR_TOKEN schech1/uptime-buddy-api:latest
 
 ```
-## Settings on the iOS App
-After deploying the Docker container, open the Uptime Buddy companion app on your iPhone.
-Follow the three steps to configure Uptime Buddy:
-
-- Generate the token
-- Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
-- Copy the generated token into your `docker-compose.yml` and deploy it.
-
-
-<br>
-<img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
 
 ## The Apple Watch and iOS App
 
-Uptime Buddy consists of an iOS app and an Apple Watch app.
-The iOS app is needed to set up the backend adress.
-When the iOS app is installed, the Apple Watch app can be install via the Watch app of the iPhone.
+Uptime Mate consists of an iOS app and an Apple Watch app.
+The iOS app is needed to set up the backend adress and token.
+When the iOS app is installed, the Apple Watch app can be installed via the Watch app of the iPhone.
 
-Uptime Buddy comes with Complication and SmartStack support.
+Uptime Mate comes with Complication and SmartStack support.
 The current update frequency of the Widgets is 15 minutes.
 In future versions this will frequency will be individually adjustable, to extend battery life of the Apple Watch.
 
 ## Symbols on the Apple Watch
 
-The following is a list of available SF Symbols used to illustrate the monitor type:
+The following SF Symbols are used to illustrate the monitor type:
 
-<img src="images/sfSymbols.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+<img src="images/sfSymbols.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 
 
 
 ## Data Privacy
 
-Uptime Buddy does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.
+Uptime Mate does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.
 The Apple Watch or iOS apps do not store any data locally on the devices, except the address of your backend. This is needed to keep
 setting over reboots. 
 
-## Next planned Updates
+## Bucket list
 
 - [x] API token for backend authorization
-- [ ] UI improvements on iOS app
+- [x] UI improvements on iOS app
+- [x] More Symbols for monitor types
+- [x] Nice AppStore page
+- [ ] Better looking complications
 - [ ] Better user feedback when backend is down
-
+- [ ] Communicate with Uptime Kuma directly (no additional docker container)
 
 
 

@@ -12,8 +12,8 @@ USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 TOKEN = os.getenv("TOKEN")
 
-if not all([UPTIME_KUMA_URL, USERNAME, PASSWORD, TOKEN]):
-    raise ValueError("UPTIME_KUMA_URL, USERNAME, and PASSWORD environment variables must be provided.")
+if not all([UPTIME_KUMA_URL, TOKEN]):
+    raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
 # Initialize the Uptime Kuma API client
 api = UptimeKumaApi(UPTIME_KUMA_URL)
