@@ -2,18 +2,14 @@
 
 **Uptime Buddy has been renamed to Uptime Mate.**
 
-<div align="center" style="display: flex; align-items: center; justify-content: center;">
-  <img alt="Uptime Mate" src="images/logo.png" style="width:8%; border-radius: 15%; margin-right: 10px;">
-  <h1 style="margin: 0;">Uptime Mate</h1>
-</div>
-<br>
+
 
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
 <a href="https://hub.docker.com/r/schech1/uptime-buddy-api"><img src="https://img.shields.io/docker/pulls/schech1/uptime-buddy-api" alt="Docker pulls"></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-WatchOS-green">
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-iOS-green">
-<a target="_blank" href="https://github.com/louislam/uptime-kuma"><img src="https://img.shields.io/github/last-commit/louislam/uptime-kuma" /></a>
+<a target="_blank" href="https://github.com/schech1/uptime-buddy"><img src="https://img.shields.io/github/last-commit/schech1/uptime-buddy" /></a>
 </p>
 
 <p align="center">
