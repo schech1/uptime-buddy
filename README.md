@@ -1,4 +1,4 @@
-# Uptime Mate (before Uptime Buddy)
+# Uptime Mate
 
 **Uptime Buddy has been renamed to Uptime Mate.**
 
