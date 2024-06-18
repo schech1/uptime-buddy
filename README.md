@@ -147,19 +147,19 @@ Uptime Mate supports different complications on the WatchFace.
 <table>
   <tr>
     <td style="text-align: center;">
-      <img src="images/complication-cicular.png" alt="Circular" style="width: 30%;">
+      <img src="images/complication-cicular.png" alt="Circular" style="width: 100%;">
       <p>Circular</p>
     </td>
     <td style="text-align: center;">
-      <img src="images/complication-corner.png" alt="Corner" style="width: 30%;">
+      <img src="images/complication-corner.png" alt="Corner" style="width: 100%;">
       <p>Corner</p>
     </td>
     <td style="text-align: center;">
-      <img src="images/complication-rectangular-1.png" alt="Rectangular 1" style="width: 30%;">
+      <img src="images/complication-rectangular-1.png" alt="Rectangular 1" style="width: 100%;">
       <p>Rectangular Small</p>
     </td>
     <td style="text-align: center;">
-      <img src="images/complication-rectangular-2.png" alt="Rectangular 2" style="width: 30%;">
+      <img src="images/complication-rectangular-2.png" alt="Rectangular 2" style="width: 100%;">
       <p>Rectangular Big</p>
     </td>
   </tr>
