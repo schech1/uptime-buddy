@@ -9,21 +9,20 @@ app = Flask(__name__)
 # Configure Uptime Kuma API client
 UPTIME_KUMA_URL =  "http://192.168.1.34:3002" # os.getenv("UPTIME_KUMA_URL") 
 USERNAME = "test" #os.getenv("USERNAME")
-PASSWORD = "123" # os.getenv("PASSWORD")
+PASSWORD = "123456" # os.getenv("PASSWORD")
 TOKEN = "123" # os.getenv("TOKEN")
 MFA = True
+LOGIN_TOKEN = ""
 
-if not all([UPTIME_KUMA_URL, USERNAME, PASSWORD, TOKEN]):
+if not all([UPTIME_KUMA_URL]):
     raise ValueError("UPTIME_KUMA_URL, USERNAME, and PASSWORD environment variables must be provided.")
 
-if not MFA:
-    # Initialize the Uptime Kuma API client
-    api = UptimeKumaApi(UPTIME_KUMA_URL)
-    tkn = api.login(USERNAME, PASSWORD, token="612539")
-    print(tkn)
-    api.login_by_token(tkn)
+# Initialize the Uptime Kuma API client    
+api = UptimeKumaApi(UPTIME_KUMA_URL)
 
 
+if not MFA:    
+    tkn = api.login(USERNAME, PASSWORD)
 
 def require_api_token(func):
     def wrapper(*args, **kwargs):
@@ -35,20 +34,27 @@ def require_api_token(func):
     return wrapper
 
 
-stored_tokens = {}
 
+@require_api_token
 @app.route('/mfasetup', methods=['POST'])
 def setup_mfa():
-    data = request.json
-    if not data or 'token' not in data:
-        return jsonify({"error": "Token is required"}), 400
-    
-    token = data['token']
-    print(token)
-    
-    user_id = 'user123'
-    stored_tokens[user_id] = token
-    
+    global LOGIN_TOKEN
+    if not LOGIN_TOKEN:
+        data = request.json
+        if not data or '2facode' not in data:
+            return jsonify({"error": "2FA Code is required"}), 400
+        
+        token = data.get('2facode', '').strip()
+        if not token:
+            return jsonify({"error": "2FA Code cannot be empty"}), 400
+        
+        try:
+            LOGIN_TOKEN = api.login(USERNAME, PASSWORD, token=token)
+        except:
+            return jsonify({"message": "Wrong 2FA token"}), 403
+    else:
+        return jsonify({"message": "MFA already set up"}), 403  
+
     return jsonify({"message": "2FA token stored successfully"}), 200
 
 
@@ -58,7 +64,6 @@ def get_monitors():
     try:
         monitors = api.get_monitors()
         response = []
-        print(monitors)
         for monitor in monitors:
              # Get the current time in UTC and format it as ISO 8601
             utc_now = datetime.datetime.utcnow()
