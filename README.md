@@ -144,24 +144,27 @@ The following SF Symbols are used to illustrate the monitor type:
 
 Uptime Mate supports different complications on the WatchFace.
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <div style="width: 30%; text-align: center;">
-    <img src="images/complication-cicular.png" alt="Circular" style="width: 30%;">
-    <p>Circular</p>
-  </div>
-  <div style="width: 30%; text-align: center;">
-    <img src="images/complication-corner.png" alt="Corner" style="width: 30%;">
-    <p>Corner</p>
-  </div>
-  <div style="width: 30%; text-align: center;">
-    <img src="images/complication-rectangular-1.png" alt="Rectangular 1" style="width: 30%;">
-    <p>Rectangular Small</p>
-  </div>
-  <div style="width: 30%; text-align: center;">
-    <img src="images/complication-rectangular-2.png" alt="Rectangular 2" style="width: 30%;">
-    <p>Rectangular Big</p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/complication-cicular.png" alt="Circular" style="width: 30%;">
+      <p>Circular</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-corner.png" alt="Corner" style="width: 30%;">
+      <p>Corner</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-rectangular-1.png" alt="Rectangular 1" style="width: 30%;">
+      <p>Rectangular Small</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-rectangular-2.png" alt="Rectangular 2" style="width: 30%;">
+      <p>Rectangular Big</p>
+    </td>
+  </tr>
+</table>
+
 
 
 
