@@ -34,6 +34,7 @@ Uptime Mate, requires a lightweight docker backend to run.
 
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
+
 The current version (1.0.4) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
@@ -51,6 +52,7 @@ Follow the these steps to configure Uptime Mate:
 
 - Generate the token
 - Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
+- Test the backend
 - Copy the generated token into your `docker-compose.yml` and deploy it.
 - Send the setting to the Apple Watch. It will display your monitors from Uptime Kuma in the Apple Watch app
 - Check out the Watch Face complications
