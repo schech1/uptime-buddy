@@ -140,6 +140,29 @@ The following SF Symbols are used to illustrate the monitor type:
 
 <img src="images/sfSymbols.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 
+## Complication
+
+Uptime Mate supports different complications on the WatchFace.
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+  <figure style="width:30%;">
+    <img src="images/complication-cicular.png" alt="Circular" style="width:100%;">
+    <figcaption>Circular</figcaption>
+  </figure>
+  <figure style="width:30%;">
+    <img src="images/complication-corner.png" alt="Corner" style="width:100%;">
+    <figcaption>Corner</figcaption>
+  </figure>
+  <figure style="width:30%;">
+    <img src="images/complication-rectangular-1.png" alt="Rectangular 1" style="width:100%;">
+    <figcaption>Rectangular Big</figcaption>
+  </figure>
+  <figure style="width:30%;">
+    <img src="images/complication-rectangular-2.png" alt="Rectangular 2" style="width:100%;">
+    <figcaption>Rectangular Small</figcaption>
+  </figure>
+</div>
+
 
 
 ## Data Privacy
