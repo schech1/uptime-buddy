@@ -140,7 +140,7 @@ The following SF Symbols are used to illustrate the monitor type:
 
 <img src="images/sfSymbols.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
 
-## Complication
+## Complications
 
 Uptime Mate supports different complications on the WatchFace.
 
