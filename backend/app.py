@@ -17,6 +17,7 @@ LOGIN_TOKEN = ""
 if not all([UPTIME_KUMA_URL]):
     raise ValueError("UPTIME_KUMA_URL, USERNAME, and PASSWORD environment variables must be provided.")
 
+
 # Initialize the Uptime Kuma API client    
 api = UptimeKumaApi(UPTIME_KUMA_URL)
 
