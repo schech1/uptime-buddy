@@ -11,11 +11,11 @@ UPTIME_KUMA_URL =  "http://192.168.1.34:3002" # os.getenv("UPTIME_KUMA_URL")
 USERNAME = "test" #os.getenv("USERNAME")
 PASSWORD = "123456" # os.getenv("PASSWORD")
 TOKEN = "123" # os.getenv("TOKEN")
-MFA = True
+MFA = True #os.getenv("MFA")
 LOGIN_TOKEN = ""
 
 if not all([UPTIME_KUMA_URL]):
-    raise ValueError("UPTIME_KUMA_URL, USERNAME, and PASSWORD environment variables must be provided.")
+    raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
 
 # Initialize the Uptime Kuma API client    
