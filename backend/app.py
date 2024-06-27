@@ -7,14 +7,14 @@ import datetime
 app = Flask(__name__)
 
 # Configure Uptime Kuma API client
-UPTIME_KUMA_URL =  "http://192.168.1.34:3002" # os.getenv("UPTIME_KUMA_URL") 
-USERNAME = "test" #os.getenv("USERNAME")
-PASSWORD = "123456" # os.getenv("PASSWORD")
-TOKEN = "123" # os.getenv("TOKEN")
-MFA = True #os.getenv("MFA")
+UPTIME_KUMA_URL =  os.getenv("UPTIME_KUMA_URL") 
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
+TOKEN = os.getenv("TOKEN")
+MFA = os.getenv("MFA")
 LOGIN_TOKEN = ""
 
-if not all([UPTIME_KUMA_URL]):
+if not all([UPTIME_KUMA_URL, TOKEN]):
     raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
 
