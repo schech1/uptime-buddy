@@ -7,20 +7,23 @@ import datetime
 app = Flask(__name__)
 
 # Configure Uptime Kuma API client
-UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
+UPTIME_KUMA_URL =  os.getenv("UPTIME_KUMA_URL") 
 USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 TOKEN = os.getenv("TOKEN")
+MFA = os.getenv("MFA")
+LOGIN_TOKEN = ""
 
 if not all([UPTIME_KUMA_URL, TOKEN]):
     raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
-# Initialize the Uptime Kuma API client
+
+# Initialize the Uptime Kuma API client    
 api = UptimeKumaApi(UPTIME_KUMA_URL)
-api.login(USERNAME, PASSWORD)
 
 
-
+if not MFA:    
+    tkn = api.login(USERNAME, PASSWORD)
 
 def require_api_token(func):
     def wrapper(*args, **kwargs):
@@ -31,13 +34,37 @@ def require_api_token(func):
     wrapper.__name__ = func.__name__
     return wrapper
 
+
+
+@require_api_token
+@app.route('/mfasetup', methods=['POST'])
+def setup_mfa():
+    global LOGIN_TOKEN
+    if not LOGIN_TOKEN:
+        data = request.json
+        if not data or '2facode' not in data:
+            return jsonify({"error": "2FA Code is required"}), 400
+        
+        token = data.get('2facode', '').strip()
+        if not token:
+            return jsonify({"error": "2FA Code cannot be empty"}), 400
+        
+        try:
+            LOGIN_TOKEN = api.login(USERNAME, PASSWORD, token=token)
+        except:
+            return jsonify({"message": "Wrong 2FA token"}), 403
+    else:
+        return jsonify({"message": "MFA already set up"}), 403  
+
+    return jsonify({"message": "2FA token stored successfully"}), 200
+
+
 @app.route('/monitors', methods=['GET'])
 @require_api_token
 def get_monitors():
     try:
         monitors = api.get_monitors()
         response = []
-        print(monitors)
         for monitor in monitors:
              # Get the current time in UTC and format it as ISO 8601
             utc_now = datetime.datetime.utcnow()
