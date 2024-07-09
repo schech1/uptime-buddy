@@ -5,15 +5,11 @@ import os
 import datetime
 
 app = Flask(__name__)
+port = 5005
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Log when the server starts
-@app.before_first_request
-def before_first_request():
-    logger.info("Server is starting...")
 
 # Log when the server is stopped
 @app.teardown_appcontext
@@ -155,6 +151,6 @@ def get_monitor(monitor_id):
 
 if __name__ == "__main__":
     from waitress import serve
-    logger.info("Starting the server...")
-    serve(app, host="0.0.0.0", port=5005)
-    logger.info("Server started")
+    logger.info("Starting the backend...")
+    serve(app, host="0.0.0.0", port=port)
+    logger.info(f"Uptime Mate backend started on port: {port}")
