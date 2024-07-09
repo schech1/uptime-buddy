@@ -1,4 +1,4 @@
-# Uptime Mate (before Uptime Buddy)
+# Uptime Mate
 
 **Uptime Buddy has been renamed to Uptime Mate.**
 
@@ -34,7 +34,8 @@ Uptime Mate, requires a lightweight docker backend to run.
 
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
-The current version (1.0.3) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
+
+The current version (1.0.7) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
@@ -51,6 +52,7 @@ Follow the these steps to configure Uptime Mate:
 
 - Generate the token
 - Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
+- Test the backend
 - Copy the generated token into your `docker-compose.yml` and deploy it.
 - Send the setting to the Apple Watch. It will display your monitors from Uptime Kuma in the Apple Watch app
 - Check out the Watch Face complications
@@ -66,6 +68,14 @@ Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/loui
 
 Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
 
+If you disabled auth in Uptime Kuma, remove the two lines from the compose-file entirely:
+
+```yaml
+- USERNAME=YOUR_UPTIME_KUMA_USERNAME
+- PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
+```
+
+
 Follow the steps below to set up the backend for Uptime Mate.
 
 
@@ -80,8 +90,8 @@ services:
       - "5005:5005"
     environment:
       - UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL # e.g. http://192.168.1.34:3002/
-      - USERNAME=YOUR_UPTIME_KUMA_USERNAME
-      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
+      - USERNAME=YOUR_UPTIME_KUMA_USERNAME # Optional: remove line if auth is disabled in Uptime Kuma
+      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD # Optional: remove line if auth is disabled in Uptime Kuma
       - TOKEN=SECRET_TOKEN # Created by iOS-App
 ```
 Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
@@ -107,6 +117,9 @@ docker-compose up -d
 This command will pull the necessary Docker image and start the backend service on port 5005.
 
 ### Using docker run (alternative)
+
+*Hint: Remove `USERNAME` and `PASSWORD`, if auth is disabled in Uptime Kuma*
+
 ```bash
 docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL -e USERNAME=YOUR_UPTIME_KUMA_USERNAME -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD -e TOKEN=YOUR_TOKEN schech1/uptime-buddy-api:latest
 
@@ -128,6 +141,46 @@ In future versions this will frequency will be individually adjustable, to exten
 The following SF Symbols are used to illustrate the monitor type:
 
 <img src="images/sfSymbols.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
+
+## Complications
+
+Uptime Mate supports different complications on the WatchFace.
+
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/complication-cicular.png" alt="Circular" style="width: 100%;">
+      <p>Circular</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-corner.png" alt="Corner" style="width: 100%;">
+      <p>Corner</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-rectangular-1.png" alt="Rectangular Big" style="width: 100%;">
+      <p>Rectangular Big</p>
+    </td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+<td style="text-align: center;">
+      <img src="images/complication-rectangular-2.png" alt="Rectangular Small" style="width: 100%;">
+      <p>Rectangular Small</p>
+    <td style="text-align: center;">
+      <img src="images/complication-rectangular-dashed.png" alt="Rectangular Big" style="width: 100%;">
+      <p>Rectangular Dashed</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-circular-dashed.png" alt="Rectangular Small" style="width: 100%;">
+      <p>Circular Dashed</p>
+    </td>
+  </tr>
+</table>
+
+
 
 
 
