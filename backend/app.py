@@ -4,7 +4,7 @@ from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
 from waitress import serve
-import git
+
 
 class Main:
     def __init__(self):
@@ -18,14 +18,6 @@ class Main:
         log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         logging.basicConfig(level=logging.INFO, format=log_format)
         self.logger = logging.getLogger(__name__)
-
-    def get_backend_version(self):
-        repo = git.Repo(search_parent_directories=True)
-        short_sha = repo.head.object.hexsha[:7]
-        # Get the last tag
-        tags = sorted(repo.tags, key=lambda t: t.commit.committed_date)
-        last_tag = tags[-1].name if tags else ""
-        return f"{last_tag}-{short_sha}"
     
     def configure_api_client(self):
         self.UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
@@ -117,7 +109,7 @@ class Main:
         @self.require_api_token
         def status():
             self.logger.info("Accessing /status endpoint")
-            return jsonify({"status": "available", "version": self.get_backend_version()}), 200
+            return jsonify({"status": "available"}), 200
 
         @self.app.route('/monitor/<int:monitor_id>/beats', methods=['GET'])
         @self.require_api_token
@@ -166,7 +158,6 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        self.logger.info(f"Uptime Mate backend version {self.get_backend_version()}")
         serve(self.app, host="0.0.0.0", port=self.port)
 
 
