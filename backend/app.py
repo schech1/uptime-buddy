@@ -11,13 +11,9 @@ port = 5005
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Log when the server is stopped
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    logger.info("Server is stopping...")
 
 # Configure Uptime Kuma API client
-UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
+UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL") 
 USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 TOKEN = os.getenv("TOKEN")
@@ -32,6 +28,12 @@ api = UptimeKumaApi(UPTIME_KUMA_URL)
 
 if not MFA:
     tkn = api.login(USERNAME, PASSWORD)
+    if tkn:
+        logger.info("Successfully connected to Uptime Kuma instance")
+    else:
+        logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
+
+
 
 def require_api_token(func):
     def wrapper(*args, **kwargs):
