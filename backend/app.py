@@ -14,7 +14,8 @@ class Main:
         self.setup_routes()
         
     def setup_logging(self):
-        logging.basicConfig(level=logging.INFO)
+        log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        logging.basicConfig(level=logging.INFO, format=log_format)
         self.logger = logging.getLogger(__name__)
 
     def configure_api_client(self):
