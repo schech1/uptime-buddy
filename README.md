@@ -32,10 +32,30 @@ Uptime Mate, requires a lightweight docker backend to run.
 </div>
 
 
+## Last Update Changelog
+**App Version 1.0.8**
+
+The Rectangular Dashed complication now shows the timestamp of the last incident. (The last time one ore more services were down)
+
+
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 100%;">
+      <p>Last Incident timestamp</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 100%;">
+      <p>No downtimes since app installation</p>
+    </td>
+  </tr>
+</table>
+
+
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
 
-The current version (1.0.7) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
+The current version (1.0.8) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
