@@ -41,11 +41,11 @@ The Rectangular Dashed complication now shows the timestamp of the last incident
 <table>
   <tr>
     <td style="text-align: center;">
-      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 50%;">
+      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 70%;">
       <p>Last Incident timestamp</p>
     </td>
     <td style="text-align: center;">
-      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 50%;">
+      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 70%;">
       <p>No downtimes since app installation</p>
     </td>
   </tr>
