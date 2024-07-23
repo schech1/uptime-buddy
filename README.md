@@ -243,9 +243,7 @@ Contributions are welcome.
 
 If you enjoy using this app, please consider leaving a rating on the App Store!
 
-<a href="itms-apps://itunes.apple.com/app/id6503297780?action=write-review">
-  <img alt="Static Badge" src="https://img.shields.io/badge/AppStore-Leave%20a%20Rating-blue"/>
-</a>
+<a href="itms-apps://itunes.apple.com/app/id6503297780?action=write-review">Rate Uptime Mate on the Apple App Store</a>
 
 >**Note:** This link will only work on iOS devices. If you are viewing this on a desktop or non-iOS device, please [click here](https://apps.apple.com/app/id6503297780?action=write-review) to leave a review.
 
