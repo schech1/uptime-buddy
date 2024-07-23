@@ -33,9 +33,9 @@ Uptime Mate, requires a lightweight docker backend to run.
 
 
 ## Last Update Changelog
-**App Version 1.0.8**
 
-**Changes**
+
+### Changes **App Version 1.0.8**
 
 *The Rectangular Dashed complication now shows the timestamp of the last incident. (The last time one ore more services were down)*
 
