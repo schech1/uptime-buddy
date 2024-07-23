@@ -241,11 +241,7 @@ Contributions are welcome.
 
 ## Support Me
 
-If you enjoy using this app, please consider leaving a rating on the App Store!
-
-<a href="itms-apps://itunes.apple.com/app/id6503297780?action=write-review">Rate Uptime Mate on the Apple App Store</a>
-
->**Note:** This link will only work on iOS devices. If you are viewing this on a desktop or non-iOS device, please [click here](https://apps.apple.com/app/id6503297780?action=write-review) to leave a review.
-
+If you enjoy using this app, please consider leaving a 
+[Rating on the App Store!](https://apps.apple.com/app/id6503297780?action=write-review)
 
 If you encounter any issues or have questions, please open an issue on this GitHub repository.
