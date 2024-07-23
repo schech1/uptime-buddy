@@ -4,13 +4,16 @@
 
 
 
+
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
 <a href="https://hub.docker.com/r/schech1/uptime-buddy-api"><img src="https://img.shields.io/docker/pulls/schech1/uptime-buddy-api" alt="Docker pulls"></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-WatchOS-green">
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-iOS-green">
 <a target="_blank" href="https://github.com/schech1/uptime-buddy"><img src="https://img.shields.io/github/last-commit/schech1/uptime-buddy" /></a>
+<a href="itms-apps://itunes.apple.com/app/id6503297780?action=write-review"><img alt="Static Badge" src="https://img.shields.io/badge/AppStore-Support%20me%20and%20leave%20a%20rating-blue">
 </p>
+
 
 <p align="center">
 <a href="https://apps.apple.com/de/app/uptime-mate/id6503297780"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store Link"></a>
@@ -83,6 +86,7 @@ Follow the these steps to configure Uptime Mate:
 
 
 ## Installation via Docker
+
 
 Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
 
