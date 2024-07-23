@@ -36,23 +36,26 @@ Uptime Mate, requires a lightweight docker backend to run.
 
 
 ## Last Update Changelog
-**App Version 1.0.8**
 
-The Rectangular Dashed complication now shows the timestamp of the last incident. (The last time one ore more services were down)
 
+### Changes **App Version 1.0.8**
+
+*The Rectangular Dashed complication now shows the timestamp of the last incident. (The last time one ore more services were down)*
 
 <table>
   <tr>
     <td style="text-align: center;">
-      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 70%;">
+      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 60%;">
       <p>Last Incident timestamp</p>
     </td>
     <td style="text-align: center;">
-      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 70%;">
+      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 60%;">
       <p>No downtimes since app installation</p>
     </td>
   </tr>
 </table>
+
+
 
 
 ## Backend Compatibility
