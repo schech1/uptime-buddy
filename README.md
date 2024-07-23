@@ -3,15 +3,12 @@
 **Uptime Buddy has been renamed to Uptime Mate.**
 
 
-
-
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
 <a href="https://hub.docker.com/r/schech1/uptime-buddy-api"><img src="https://img.shields.io/docker/pulls/schech1/uptime-buddy-api" alt="Docker pulls"></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-WatchOS-green">
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-iOS-green">
 <a target="_blank" href="https://github.com/schech1/uptime-buddy"><img src="https://img.shields.io/github/last-commit/schech1/uptime-buddy"/></a>
-<a href="itms-apps://itunes.apple.com/app/id6503297780?action=write-review"><img alt="Static Badge" src="https://img.shields.io/badge/AppStore-Support%20me%20and%20leave%20a%20rating-blue"/></a>
 </p>
 
 
@@ -242,6 +239,15 @@ This project is based on Uptime Kuma and uptime-kuma-api.
 
 Contributions are welcome.
 
-## Support
+## Support Me
+
+If you enjoy using this app, please consider leaving a rating on the App Store!
+
+<a href="itms-apps://itunes.apple.com/app/id6503297780?action=write-review">
+  <img alt="Static Badge" src="https://img.shields.io/badge/AppStore-Leave%20a%20Rating-blue"/>
+</a>
+
+>**Note:** This link will only work on iOS devices. If you are viewing this on a desktop or non-iOS device, please [click here](https://apps.apple.com/app/id6503297780?action=write-review) to leave a review.
+
 
 If you encounter any issues or have questions, please open an issue on this GitHub repository.
