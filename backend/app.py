@@ -93,7 +93,7 @@ class Main:
                         "id": monitor.get("id"),
                         "host": str(monitor.get("hostname")),
                         "alias": monitor.get("name"),
-                        "online": monitor.get("active"),
+                        "active": monitor.get("active"),
                         "interval": monitor.get("interval"),
                         "lastUpdate": iso_utc_now,
                         "type": monitor.get("type")
