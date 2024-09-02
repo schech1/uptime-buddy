@@ -130,15 +130,18 @@ class Main:
             try:
                 online_count = 0
                 total_count = 0
+                paused_count = 0
                 monitors = self.api.get_monitors()
                 for monitor in monitors:
+                    if not monitor.get("active"):
+                        paused_count +=1
                     heartbeats = self.api.get_monitor_beats(monitor.get("id"), 12)
                     if heartbeats:
                         last_heartbeat = heartbeats[-1]  # Get the last heartbeat
                         if last_heartbeat.get("status") == MonitorStatus.UP:
                             online_count += 1
                     total_count += 1
-                return jsonify({"on": online_count, "total": total_count})
+                return jsonify({"on": online_count, "total": total_count, "paused": paused_count})
             except Exception as e:
                 self.logger.error("Error in /online_hosts: %s", str(e))
                 return jsonify({"error": str(e)}), 500
