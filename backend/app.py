@@ -38,7 +38,9 @@ class Main:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
             else:
                 self.logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
-
+        else:
+            self.logger.info("You have MFA enabled in UptimeKuma. Make sure to apply the MFA token in the Uptime Mate iOS-App")
+            
     def require_api_token(self, func):
         def wrapper(*args, **kwargs):
             token = request.args.get('token')
