@@ -138,7 +138,7 @@ class Main:
                     heartbeats = self.api.get_monitor_beats(monitor.get("id"), 12)
                     if heartbeats:
                         last_heartbeat = heartbeats[-1]  # Get the last heartbeat
-                        if last_heartbeat.get("status") == MonitorStatus.UP:
+                        if last_heartbeat.get("status") == MonitorStatus.UP and monitor.get("active"):
                             online_count += 1
                     total_count += 1
                 return jsonify({"on": online_count, "total": total_count, "paused": paused_count})
