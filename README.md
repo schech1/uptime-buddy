@@ -153,7 +153,7 @@ docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIM
 ## The Apple Watch and iOS App
 
 Uptime Mate consists of an iOS app and an Apple Watch app.
-The iOS app is needed to set up the backend adress and token.
+The iOS app is needed to set up the backend address and token.
 When the iOS app is installed, the Apple Watch app can be installed via the Watch app of the iPhone.
 
 Uptime Mate comes with Complication and SmartStack support.
