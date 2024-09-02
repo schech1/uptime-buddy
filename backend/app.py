@@ -5,7 +5,6 @@ import os
 import datetime
 from waitress import serve
 
-
 class Main:
     def __init__(self):
         self.app = Flask(__name__)
@@ -18,7 +17,7 @@ class Main:
         log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         logging.basicConfig(level=logging.INFO, format=log_format)
         self.logger = logging.getLogger(__name__)
-    
+
     def configure_api_client(self):
         self.UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
         self.USERNAME = os.getenv("USERNAME")
@@ -34,10 +33,10 @@ class Main:
         self.api = UptimeKumaApi(self.UPTIME_KUMA_URL)
 
         if not self.MFA:
-            try:
-                self.api.login(self.USERNAME, self.PASSWORD)
+            tkn = self.api.login(self.USERNAME, self.PASSWORD)
+            if tkn:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
-            except:
+            else:
                 self.logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
 
     def require_api_token(self, func):
@@ -159,7 +158,7 @@ class Main:
     def run(self):
         self.logger.info("Starting the backend...")
         serve(self.app, host="0.0.0.0", port=self.port)
-
+        self.logger.info(f"Uptime Mate backend started on port: {self.port}")
 
 if __name__ == "__main__":
     main = Main()

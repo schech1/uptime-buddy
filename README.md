@@ -3,14 +3,14 @@
 **Uptime Buddy has been renamed to Uptime Mate.**
 
 
-
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
 <a href="https://hub.docker.com/r/schech1/uptime-buddy-api"><img src="https://img.shields.io/docker/pulls/schech1/uptime-buddy-api" alt="Docker pulls"></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-WatchOS-green">
 <img alt="Static Badge" src="https://img.shields.io/badge/OS-iOS-green">
-<a target="_blank" href="https://github.com/schech1/uptime-buddy"><img src="https://img.shields.io/github/last-commit/schech1/uptime-buddy" /></a>
+<a target="_blank" href="https://github.com/schech1/uptime-buddy"><img src="https://img.shields.io/github/last-commit/schech1/uptime-buddy"/></a>
 </p>
+
 
 <p align="center">
 <a href="https://apps.apple.com/de/app/uptime-mate/id6503297780"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store Link"></a>
@@ -32,10 +32,33 @@ Uptime Mate, requires a lightweight docker backend to run.
 </div>
 
 
+## Last Update Changelog
+
+
+### Changes **App Version 1.0.8**
+
+*The Rectangular Dashed complication now shows the timestamp of the last incident. (The last time one ore more services were down)*
+
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 60%;">
+      <p>Last Incident timestamp</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 60%;">
+      <p>No downtimes since app installation</p>
+    </td>
+  </tr>
+</table>
+
+
+
+
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
 
-The current version (1.0.7) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
+The current version (1.0.9) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
@@ -63,6 +86,7 @@ Follow the these steps to configure Uptime Mate:
 
 
 ## Installation via Docker
+
 
 Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
 
@@ -215,6 +239,9 @@ This project is based on Uptime Kuma and uptime-kuma-api.
 
 Contributions are welcome.
 
-## Support
+## Support Me
+
+If you enjoy using this app, please consider leaving a 
+[Rating on the App Store!](https://apps.apple.com/app/id6503297780?action=write-review)
 
 If you encounter any issues or have questions, please open an issue on this GitHub repository.
