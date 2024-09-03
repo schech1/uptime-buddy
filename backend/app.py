@@ -31,13 +31,13 @@ class Main:
 
         # Initialize the Uptime Kuma API client    
         self.api = UptimeKumaApi(self.UPTIME_KUMA_URL)
-        if self.MFA == "false":
+        if self.MFA == "false" or self.MFA is None:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
             else:
                 self.logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
-                
+
         elif self.MFA == "true":
             self.logger.info("You have MFA enabled in UptimeKuma. Make sure to apply the MFA token in the Uptime Mate iOS-App")
         else:
