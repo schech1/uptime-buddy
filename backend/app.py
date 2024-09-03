@@ -38,7 +38,9 @@ class Main:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
             else:
                 self.logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
-
+        else:
+            self.logger.info("You have MFA enabled in UptimeKuma. Make sure to apply the MFA token in the Uptime Mate iOS-App")
+            
     def require_api_token(self, func):
         def wrapper(*args, **kwargs):
             token = request.args.get('token')
@@ -93,7 +95,7 @@ class Main:
                         "id": monitor.get("id"),
                         "host": str(monitor.get("hostname")),
                         "alias": monitor.get("name"),
-                        "online": monitor.get("active"),
+                        "active": monitor.get("active"),
                         "interval": monitor.get("interval"),
                         "lastUpdate": iso_utc_now,
                         "type": monitor.get("type")
@@ -130,15 +132,18 @@ class Main:
             try:
                 online_count = 0
                 total_count = 0
+                paused_count = 0
                 monitors = self.api.get_monitors()
                 for monitor in monitors:
+                    if not monitor.get("active"):
+                        paused_count +=1
                     heartbeats = self.api.get_monitor_beats(monitor.get("id"), 12)
                     if heartbeats:
                         last_heartbeat = heartbeats[-1]  # Get the last heartbeat
-                        if last_heartbeat.get("status") == MonitorStatus.UP:
+                        if last_heartbeat.get("status") == MonitorStatus.UP and monitor.get("active"):
                             online_count += 1
                     total_count += 1
-                return jsonify({"on": online_count, "total": total_count})
+                return jsonify({"on": online_count, "total": total_count, "paused": paused_count})
             except Exception as e:
                 self.logger.error("Error in /online_hosts: %s", str(e))
                 return jsonify({"error": str(e)}), 500
