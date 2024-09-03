@@ -45,6 +45,28 @@ Make sure you update the iOS-App to 1.1.0 from the AppStore and pull the lastest
 
 - Support for MFA implemented. Uptime Kuma instances with 2FA activated can now be monitored too.
 
+To add support for MFA, add the MFA variable to the docker-compose and turn on MFA in the iOS-App and apply the authenticator code.
+
+**Example**
+
+```yaml
+version: '3.8'
+
+services:
+  uptime-buddy-api:
+
+    image: schech1/uptime-buddy-api:latest
+    ports:
+      - "5005:5005"
+    environment:
+      - UPTIME_KUMA_URL=http://192.168.1.20:3002/
+      - USERNAME=admin
+      - PASSWORD=admin
+      - TOKEN=gkd4el
+      - MFA=true
+```
+
+
 
 
 
