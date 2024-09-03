@@ -31,12 +31,12 @@ class Main:
 
         # Initialize the Uptime Kuma API client    
         self.api = UptimeKumaApi(self.UPTIME_KUMA_URL)
-        print("mfa")
-        print (self.MFA)
+        self.logger.info("mfa")
+        self.logger.info (self.MFA)
         if self.MFA == "true":
-            print("was true")
+            self.logger.info("was true")
         if self.MFA == ("false"):
-            print("was false")
+            self.logger.info("was false")
         if not self.MFA:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
