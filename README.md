@@ -35,22 +35,15 @@ Uptime Mate, requires a lightweight docker backend to run.
 ## Last Update Changelog
 
 
-### Changes **App Version 1.0.8**
+### Changes **App Version 1.1.0**
 
-*The Rectangular Dashed complication now shows the timestamp of the last incident. (The last time one ore more services were down)*
+**IMPORTANT!**
 
-<table>
-  <tr>
-    <td style="text-align: center;">
-      <img src="images/complication-dashed-incident2.png" alt="Corner" style="width: 60%;">
-      <p>Last Incident timestamp</p>
-    </td>
-    <td style="text-align: center;">
-      <img src="images/complication-dashed-incident-never.png" alt="Rectangular Big" style="width: 60%;">
-      <p>No downtimes since app installation</p>
-    </td>
-  </tr>
-</table>
+The update 1.1.0 of the app and the backend is not backwards compatible.
+Make sure you update the iOS-App to 1.1.0 from the AppStore and pull the lastest docker image from: `schech1/uptime-buddy-api:latest` 
+- Added an option to exclude paused monitors to the list. The setting is available in the info menu on the AppleWatch App.
+
+- Support for MFA implemented. Uptime Kuma instances with 2FA activated can now be monitored too.
 
 
 
@@ -58,7 +51,7 @@ Uptime Mate, requires a lightweight docker backend to run.
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
 
-The current version (1.0.9) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
+The current version (1.1.0) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
