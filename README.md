@@ -63,11 +63,8 @@ services:
       - USERNAME=admin
       - PASSWORD=admin
       - TOKEN=gkd4el
-      - MFA=true
+      - MFA=true/false
 ```
-
-
-
 
 
 ## Backend Compatibility
@@ -132,6 +129,7 @@ services:
       - USERNAME=YOUR_UPTIME_KUMA_USERNAME # Optional: remove line if auth is disabled in Uptime Kuma
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD # Optional: remove line if auth is disabled in Uptime Kuma
       - TOKEN=SECRET_TOKEN # Created by iOS-App
+      - MFA=true/false
 ```
 Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
 
