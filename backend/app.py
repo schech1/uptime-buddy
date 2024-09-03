@@ -162,7 +162,7 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        serve(self.app, host="0.0.0.0", port=self.port)
+        serve(self.app, host="0.0.0.0", port=self.port, threads=8)
         self.logger.info(f"Uptime Mate backend started on port: {self.port}")
 
 if __name__ == "__main__":
