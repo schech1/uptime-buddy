@@ -31,15 +31,17 @@ class Main:
 
         # Initialize the Uptime Kuma API client    
         self.api = UptimeKumaApi(self.UPTIME_KUMA_URL)
-
-        if not self.MFA:
+        if self.MFA == "false" or self.MFA is None:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
             else:
                 self.logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
-        else:
+
+        elif self.MFA == "true":
             self.logger.info("You have MFA enabled in UptimeKuma. Make sure to apply the MFA token in the Uptime Mate iOS-App")
+        else:
+            self.logger.info("Invalid value for MFA. Allowed values true/false")
             
     def require_api_token(self, func):
         def wrapper(*args, **kwargs):
@@ -162,7 +164,7 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        serve(self.app, host="0.0.0.0", port=self.port)
+        serve(self.app, host="0.0.0.0", port=self.port, threads=8)
         self.logger.info(f"Uptime Mate backend started on port: {self.port}")
 
 if __name__ == "__main__":
