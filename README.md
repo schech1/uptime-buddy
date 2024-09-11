@@ -19,17 +19,11 @@
 Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
 Uptime Mate, requires a lightweight docker backend to run.
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-</div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-</div>
+|<img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|
+|:---:|:---:|:---:|
+|<img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|
+
 
 
 ## Last Update Changelog
