@@ -167,6 +167,7 @@ class Main:
         @self.app.route('/system', methods=['GET'])
         @self.require_api_token
         def getSystemInfo():
+            self.logger.info("Accessing /system endpoint")
             systemInfo = {}
 
             # Determine OS name
