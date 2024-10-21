@@ -199,11 +199,16 @@ class Main:
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
 
             # Backend version
-            app_version = os.getenv('APP_VERSION')
-            if app_version:
-                app_version = app_version[1:]
+            version_file_path = '/app/VERSION'
 
-            systemInfo["version"] = app_version
+            try:
+                with open(version_file_path) as version_file:
+                    app_version = version_file.read().strip()
+                print(f"App Version: {app_version}")
+            except FileNotFoundError:
+                print(f"VERSION file not found at {version_file_path}")
+
+            print (jsonify(systemInfo))
             return jsonify(systemInfo)
 
 
