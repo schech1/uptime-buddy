@@ -204,10 +204,11 @@ class Main:
             try:
                 with open(version_file_path) as version_file:
                     app_version = version_file.read().strip()
-                self.logger.info(f"App Version: {app_version}")
+                    systemInfo["version"] = app_version
+
             except FileNotFoundError:
                 self.logger.info(f"VERSION file not found at {version_file_path}")
-            self.logger.info(jsonify(systemInfo))      
+
         
             return jsonify(systemInfo)
 
