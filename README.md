@@ -35,37 +35,24 @@ Uptime Mate, requires a lightweight docker backend to run.
 ## Last Update Changelog
 
 
-### Changes **App Version 1.1.0**
+### Changes **App Version 1.1.4**
 
-**IMPORTANT!**
+With version 1.1.4 of backend and app, the InfoView got reworked.
+It will now show some system information about the backend host system.
+It will also show and warn if backendversion and appversion are not in sync.
 
-The update 1.1.0 of the app and the backend is not backwards compatible.
-Make sure you update the iOS-App to 1.1.0 from the AppStore and pull the lastest docker image from: `schech1/uptime-buddy-api:latest` 
-- Added an option to exclude paused monitors to the list. The setting is available in the info menu on the AppleWatch App.
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="images/sysinfo-2.png" alt="Circular" style="width: 100%;">
+      <p>Systeminfo</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="images/sysinfo-1.png" alt="Corner" style="width: 100%;">
+      <p>Systeminfo Details</p>
 
-- Support for MFA implemented. Uptime Kuma instances with 2FA activated can now be monitored too.
-
-To add support for MFA, add the MFA variable to the docker-compose and turn on MFA in the iOS-App and apply the authenticator code.
-
-**Example**
-
-```yaml
-version: '3.8'
-
-services:
-  uptime-buddy-api:
-
-    image: schech1/uptime-buddy-api:latest
-    ports:
-      - "5005:5005"
-    environment:
-      - UPTIME_KUMA_URL=http://192.168.1.20:3002/
-      - USERNAME=admin
-      - PASSWORD=admin
-      - TOKEN=gkd4el
-      - MFA=true
-```
-
+  </tr>
+</table>
 
 
 
@@ -73,7 +60,7 @@ services:
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
 
-The current version (1.1.0) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
+The current version (1.1.4) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
@@ -132,6 +119,7 @@ services:
       - USERNAME=YOUR_UPTIME_KUMA_USERNAME # Optional: remove line if auth is disabled in Uptime Kuma
       - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD # Optional: remove line if auth is disabled in Uptime Kuma
       - TOKEN=SECRET_TOKEN # Created by iOS-App
+      - MFA=true  # Is MFA enabled in Uptime Kuma?
 ```
 Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
 
