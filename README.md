@@ -19,17 +19,11 @@
 Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
 Uptime Mate, requires a lightweight docker backend to run.
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-</div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
-  <img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-  <img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:30%;">
-</div>
+|<img src="images/uptime-buddy-2.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-3.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-4.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|
+|:---:|:---:|:---:|
+|<img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|
+
 
 
 ## Last Update Changelog
@@ -41,6 +35,7 @@ With version 1.1.4 of backend and app, the InfoView got reworked.
 It will now show some system information about the backend host system.
 It will also show and warn if backendversion and appversion are not in sync.
 
+
 <table>
   <tr>
     <td style="text-align: center;">
@@ -51,11 +46,9 @@ It will also show and warn if backendversion and appversion are not in sync.
       <img src="images/sysinfo-1.png" alt="Corner" style="width: 100%;">
       <p>Systeminfo Details</p>
 
+
   </tr>
 </table>
-
-
-
 
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
