@@ -164,6 +164,8 @@ class Main:
                 return jsonify({"error": str(e)}), 500
 
 
+
+
         @self.app.route('/system', methods=['GET'])
         @self.require_api_token
         def getSystemInfo():
@@ -196,7 +198,8 @@ class Main:
             systemInfo["diskFree"] = round(disk.free / 1024**3, 2)
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
 
-            return json.dumps(systemInfo, indent=4)
+            return jsonify(systemInfo)
+
 
 
 
