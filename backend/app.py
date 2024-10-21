@@ -199,8 +199,8 @@ class Main:
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
 
             # Backend version
-            filename = "VERSION"
-            with open(filename) as f:
+            version_file = '/app/VERSION'
+            with open(version_file) as f:
                 content = f.readlines()
 
             systemInfo["version"] = content
