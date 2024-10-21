@@ -5,7 +5,7 @@ RUN python -m pip install --upgrade pip
 WORKDIR /app
 
 COPY . /app
-COPY VERSION /app/VERSION
+COPY ../VERSION /app/VERSION
 
 RUN pip install --no-cache-dir -r requirements.txt
 
