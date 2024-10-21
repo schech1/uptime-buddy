@@ -4,6 +4,7 @@ from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
 from waitress import serve
+import platform,json,psutil,cpuinfo
 
 class Main:
     def __init__(self):
@@ -161,6 +162,43 @@ class Main:
             except Exception as e:
                 self.logger.error("Error in /monitor/%d: %s", monitor_id, str(e))
                 return jsonify({"error": str(e)}), 500
+
+
+        @self.app.route('/system', methods=['GET'])
+        @self.require_api_token
+        def getSystemInfo():
+            systemInfo = {}
+
+            # Determine OS name
+            pName = platform.uname().system
+            if "darwin" in pName.lower():
+                pName = "macOS"
+            
+            # System Information
+            systemInfo["os"] = pName
+            systemInfo["osArch"] = platform.uname().machine
+
+            # CPU Information
+            systemInfo["cpu"] = cpuinfo.get_cpu_info()["brand_raw"]
+            systemInfo["cpuCores"] = psutil.cpu_count(logical=False)
+            systemInfo["cpuThreads"] = psutil.cpu_count(logical=True)
+
+            # RAM Information
+            ram = psutil.virtual_memory()
+            systemInfo["ram"] = round(ram.total / 1024**3, 2)
+            systemInfo["ramPercent"] = round(ram.percent, 2)
+
+            # Disk Information
+            disk = psutil.disk_usage("/")
+            systemInfo["disk"] = round(disk.total / 1024**3, 2)
+            systemInfo["diskUsed"] = round((disk.total - disk.free) / 1024**3, 2)
+            systemInfo["diskFree"] = round(disk.free / 1024**3, 2)
+            systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
+
+            return json.dumps(systemInfo, indent=4)
+
+
+
 
     def run(self):
         self.logger.info("Starting the backend...")
