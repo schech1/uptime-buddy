@@ -35,7 +35,7 @@ Uptime Mate, requires a lightweight docker backend to run.
 ## Last Update Changelog
 
 
-### Changes **App Version 1.1.4**
+### Changes **App Version 1.1.3**
 
 With version 1.1.4 of backend and app, the InfoView got reworked.
 It will now show some system information about the backend host system.
