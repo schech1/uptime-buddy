@@ -204,7 +204,7 @@ class Main:
             try:
                 with open(version_file_path) as version_file:
                     app_version = version_file.read().strip()
-                    systemInfo["version"] = app_version
+                    systemInfo["version"] = app_version[1:]
 
             except FileNotFoundError:
                 self.logger.info(f"VERSION file not found at {version_file_path}")
