@@ -19,8 +19,5 @@ EXPOSE 5005
 # Set FLASK_APP environment variable
 ENV FLASK_APP=app.py
 
-# Read VERSION file and set the environment variable
-RUN VERSION=$(cat /app/VERSION) && echo "VERSION=${VERSION}" >> /etc/environment
-
 # Command to run the Flask app
 CMD ["python", "app.py"]
