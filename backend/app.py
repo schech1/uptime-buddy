@@ -198,6 +198,13 @@ class Main:
             systemInfo["diskFree"] = round(disk.free / 1024**3, 2)
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
 
+            # Backend version
+            filename = "VERSION"
+            with open(filename) as f:
+                content = f.readlines()
+
+            systemInfo["version"] = content
+
             return jsonify(systemInfo)
 
 
