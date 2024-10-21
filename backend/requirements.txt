@@ -1,3 +1,5 @@
 Flask==3.0.3
 waitress==3.0.0
 uptime-kuma-api==1.2.1
+psutil==6.1.0
+py-cpuinfo==9.0.0
