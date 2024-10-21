@@ -199,12 +199,11 @@ class Main:
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
 
             # Backend version
-            version_file = '/app/VERSION'
-            with open(version_file) as f:
-                content = f.readlines()
+            app_version = os.getenv('APP_VERSION')
+            if app_version:
+                app_version = app_version[1:]
 
-            systemInfo["version"] = content
-
+            systemInfo["version"] = app_version
             return jsonify(systemInfo)
 
 
