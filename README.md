@@ -53,7 +53,7 @@ It will also show and warn if backendversion and appversion are not in sync.
 ## Backend Compatibility
 **Be sure to pull the latest docker image**
 
-The current version (1.1.4) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
+The current version (1.1.3) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
 
 
 ## Prerequisites in the Uptime Mate iOS-App
