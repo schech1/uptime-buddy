@@ -6,8 +6,9 @@ RUN python -m pip install --upgrade pip
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy everything from the current build context (which now includes VERSION) to /app
+# Copy everything from the current build context to /app
 COPY backend /app
+COPY VERSION /app/VERSION
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
