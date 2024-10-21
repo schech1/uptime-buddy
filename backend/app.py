@@ -197,6 +197,7 @@ class Main:
             systemInfo["diskUsed"] = round((disk.total - disk.free) / 1024**3, 2)
             systemInfo["diskFree"] = round(disk.free / 1024**3, 2)
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
+            systemInfo["cputemp"]  = psutil.sensors_temperatures()
 
             # Backend version
             version_file_path = '/app/VERSION'
