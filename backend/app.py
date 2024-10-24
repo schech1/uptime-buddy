@@ -198,6 +198,18 @@ class Main:
             systemInfo["diskFree"] = round(disk.free / 1024**3, 2)
             systemInfo["diskPercent"] = round((disk.total - disk.free) / disk.total * 100, 2)
 
+
+            try:
+                temps = psutil.sensors_temperatures()
+                if "cpu_thermal" in temps:
+                    cpu_temp = temps["cpu_thermal"][0].current
+                    systemInfo["cputemp"]  = cpu_temp
+                else:
+                    self.logger.info("CPU temperature sensor not found.")
+            except:
+                self.logger.info("CPU temperature not supported")
+
+
             # Backend version
             version_file_path = '/app/VERSION'
 
