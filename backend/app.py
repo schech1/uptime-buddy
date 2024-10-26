@@ -31,7 +31,7 @@ class Main:
             raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
         # Initialize the Uptime Kuma API client    
-        self.api = UptimeKumaApi(self.UPTIME_KUMA_URL)
+        self.api = UptimeKumaApi(self.UPTIME_KUMA_URL, timeout=60)
         if self.MFA == "false" or self.MFA is None:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
