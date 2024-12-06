@@ -107,7 +107,7 @@ class Main:
                         "lastResult": monitor.get("dns_last_result")
                     }                 
                     response.append(monitor_info)
-                    monitor.get(monitors)
+                    self.logger.info(monitors)
                     
 
                 elapsed = time.time() - start_time
