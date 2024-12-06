@@ -5,6 +5,7 @@ import os
 import datetime
 from waitress import serve
 import platform,json,psutil,cpuinfo
+import time
 
 class Main:
     def __init__(self):
@@ -31,8 +32,10 @@ class Main:
             raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
         # Initialize the Uptime Kuma API client    
-        self.api = UptimeKumaApi(self.UPTIME_KUMA_URL, timeout=60)
-        if self.MFA == "false" or self.MFA is None:
+
+        self.api = UptimeKumaApi(self.UPTIME_KUMA_URL, timeout= 120) # temporary quickfix
+
+  if self.MFA == "false" or self.MFA is None:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
@@ -86,6 +89,7 @@ class Main:
         @self.require_api_token
         def get_monitors():
             self.logger.info("Accessing /monitors endpoint")
+            start_time = time.time()
             try:
                 monitors = self.api.get_monitors()
                 response = []
@@ -101,10 +105,14 @@ class Main:
                         "active": monitor.get("active"),
                         "interval": monitor.get("interval"),
                         "lastUpdate": iso_utc_now,
-                        "type": monitor.get("type")
-                    }
+                        "type": monitor.get("type"),
+                    }                 
                     response.append(monitor_info)
+
+                elapsed = time.time() - start_time
+                self.logger.info("Fetched monitors list in %.2f seconds", elapsed)
                 return jsonify(response)
+            
             except Exception as e:
                 self.logger.error("Error in /monitors: %s", str(e))
                 return jsonify({"error": str(e)}), 500
@@ -206,8 +214,8 @@ class Main:
                     systemInfo["cputemp"]  = cpu_temp
                 else:
                     self.logger.info("CPU temperature sensor not found.")
-            except:
-                self.logger.info("CPU temperature not supported")
+            except Exception as error:
+                self.logger.info(f"Failed to get CPU temp: {error}")
 
 
             # Backend version
@@ -230,7 +238,7 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        serve(self.app, host="0.0.0.0", port=self.port, threads=8)
+        serve(self.app, host="0.0.0.0", port=self.port, threads=16)
         self.logger.info(f"Uptime Mate backend started on port: {self.port}")
 
 if __name__ == "__main__":
