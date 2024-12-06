@@ -104,11 +104,8 @@ class Main:
                         "interval": monitor.get("interval"),
                         "lastUpdate": iso_utc_now,
                         "type": monitor.get("type"),
-                        "lastResult": monitor.get("dns_last_result")
                     }                 
                     response.append(monitor_info)
-                    self.logger.info(monitors)
-                    
 
                 elapsed = time.time() - start_time
                 self.logger.info("Fetched monitors list in %.2f seconds", elapsed)
