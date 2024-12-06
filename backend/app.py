@@ -104,7 +104,7 @@ class Main:
                         "interval": monitor.get("interval"),
                         "lastUpdate": iso_utc_now,
                         "type": monitor.get("type"),
-                        "last_result": monitor.get("dns_last_result")
+                        "lastResult": monitor.get("dns_last_result")
 
                     }
                     response.append(monitor_info)
