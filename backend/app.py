@@ -256,8 +256,15 @@ class Main:
         
         qr.add_data(json.dumps(qr_content))
         qr.make(fit=True)
+        
+        # Create the ASCII QR code without newlines
+        qr_ascii = qr.print_tty(quiet_zone=1)
+        
+        # Remove newline characters and print as a single block
+        qr_ascii_compact = qr_ascii.replace('\n', '')
+        
         self.logger.info("Your Setup-Code. Scan with Uptime Mate iOS App to configure your backend automatically")
-        self.logger.info(qr.print_ascii())
+        self.logger.info(qr_ascii_compact)
         return
 
     def run(self):
