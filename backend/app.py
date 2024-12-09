@@ -256,12 +256,8 @@ class Main:
         
         qr.add_data(json.dumps(qr_content))
         qr.make(fit=True)
-        
-        qr_ascii = qr.print_ascii()
-        qr_ascii_compact = qr_ascii.replace('\n', '')
-        
         self.logger.info("Your Setup-Code. Scan with Uptime Mate iOS App to configure your backend automatically")
-        self.logger.info(qr_ascii_compact)
+        qr.print_ascii()
         return
 
     def run(self):
