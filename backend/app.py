@@ -238,7 +238,7 @@ class Main:
 
     def show_qr_code(self):
         if not all([self.BACKEND_URL, self.TOKEN]):
-            self.logger.info("Set the backend URL, username and password in docker-compose to display a QR-Setup-Code")
+            self.logger.info("Set the backend URL and token in docker-compose to display a QR-Setup-Code")
             return
         
         qr = qrcode.QRCode(
@@ -262,9 +262,8 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        self.logger.info(f"Backend available at: {self.BACKEND_URL}:{self.PORT}")
         self.show_qr_code()
-        serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
+        serve(self.app, port=int(self.PORT), threads=16)
 
 if __name__ == "__main__":
     main = Main()
