@@ -244,17 +244,19 @@ class Main:
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_M,
-            box_size=10,
+            box_size=12,
             border=4,
         )
         
         qr_content = {
             "backend_url": self.BACKEND_URL,
-            "port": self.PORT
+            "port": self.PORT,
+            "token": self.TOKEN,
         }
         
         qr.add_data(json.dumps(qr_content))
         qr.make(fit=True)
+        self.logger.info("Your Setup-Code. Scan with Uptime Mate iOS App to configure your backend automatically")
         self.logger.info(qr.print_ascii())
         return
 
