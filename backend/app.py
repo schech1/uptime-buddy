@@ -4,7 +4,7 @@ from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
 from waitress import serve
-import platform,psutil,cpuinfo
+import platform,psutil, json,cpuinfo
 import time
 import qrcode
 
@@ -247,24 +247,22 @@ class Main:
             box_size=10,
             border=4,
         )
+        
         qr_content = {
             "backend_url": self.BACKEND_URL,
             "port": self.PORT
-            }                 
-
-        qr.add_data(jsonify(qr_content))
+        }
+        
+        qr.add_data(json.dumps(qr_content))
         qr.make(fit=True)
         self.logger.info(qr.print_ascii())
         return
-
-
 
     def run(self):
         self.logger.info("Starting the backend...")
         self.logger.info(f"Backend available at: {self.BACKEND_URL}:{self.PORT}")
         self.show_qr_code()
         serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
-
 
 if __name__ == "__main__":
     main = Main()
