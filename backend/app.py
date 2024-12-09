@@ -234,6 +234,9 @@ class Main:
 
 
     def show_qr_code(self):
+        if not all([self.BACKEND_URL, self.port]):
+            return(print("Set the backend URL in docker-compose to display a QR-Setup-Code"))
+        
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_M,
