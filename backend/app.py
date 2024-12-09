@@ -261,13 +261,14 @@ class Main:
         qr.print_ascii()
         return
 
-    def get_local_ip():
+    def get_local_ip(self):
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
                 s.connect(("8.8.8.8", 80))
                 return s.getsockname()[0]
         except Exception as e:
             return "127.0.0.1"
+
     def run(self):
         self.logger.info("Starting the backend...")
         self.show_qr_code()
