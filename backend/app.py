@@ -11,7 +11,6 @@ import qrcode
 class Main:
     def __init__(self):
         self.app = Flask(__name__)
-        self.port = 5005
         self.setup_logging()
         self.configure_api_client()
         self.setup_routes()
@@ -28,7 +27,11 @@ class Main:
         self.PASSWORD = os.getenv("PASSWORD")
         self.TOKEN = os.getenv("TOKEN")
         self.MFA = os.getenv("MFA")
+        self.PORT = int(os.getenv("PORT"))
         self.LOGIN_TOKEN = ""
+
+        if not self.PORT:
+            self.PORT = 5005
 
         if not all([self.UPTIME_KUMA_URL, self.TOKEN]):
             raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
@@ -234,7 +237,7 @@ class Main:
 
 
     def show_qr_code(self):
-        if not all([self.BACKEND_URL, self.port]):
+        if not all([self.BACKEND_URL, self.PORT]):
             return(print("Set the backend URL in docker-compose to display a QR-Setup-Code"))
         
         qr = qrcode.QRCode(
@@ -245,7 +248,7 @@ class Main:
         )
         qr_content = {
             "backend_url": self.BACKEND_URL,
-            "port": self.port
+            "port": self.PORT
             }                 
 
         qr.add_data(jsonify(qr_content))
@@ -256,8 +259,8 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        serve(self.app, host="0.0.0.0", port=self.port, threads=16)
-        self.logger.info(f"Backend available at: {self.BACKEND_URL}:{self.port}")
+        serve(self.app, host="0.0.0.0", port=self.PORT, threads=16)
+        self.logger.info(f"Backend available at: {self.BACKEND_URL}:{self.PORT}")
         self.show_qr_code()
 
 if __name__ == "__main__":
