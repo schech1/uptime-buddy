@@ -278,7 +278,7 @@ class Main:
             self.logger.info(f"Uptime Mate backend locally available at: http://{url}:{self.PORT}")
         else:
             url = self.EXTERNAL_URL
-            self.logger.info(f"Uptime Mate backend externally available at: http://{url}")
+            self.logger.info(f"Uptime Mate backend externally available at: {url}")
         self.show_qr_code(backend_url=url)
         
         serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
