@@ -7,6 +7,7 @@ from waitress import serve
 import platform,psutil, json,cpuinfo
 import time
 import qrcode
+import socket
 
 class Main:
     def __init__(self):
@@ -260,10 +261,21 @@ class Main:
         qr.print_ascii()
         return
 
+    def get_local_ip():
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+                s.connect(("8.8.8.8", 80))
+                return s.getsockname()[0]
+        except Exception as e:
+            return "127.0.0.1"
     def run(self):
         self.logger.info("Starting the backend...")
         self.show_qr_code()
-        serve(self.app, port=int(self.PORT), threads=16)
+
+        local_ip = self.get_local_ip()
+
+        self.logger.info(f"Server is running and available at: http://{local_ip}:{self.PORT}")
+        serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
 
 if __name__ == "__main__":
     main = Main()
