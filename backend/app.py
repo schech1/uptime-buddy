@@ -237,7 +237,7 @@ class Main:
             return jsonify(systemInfo)
 
 
-    def show_qr_code(self):
+    def show_qr_code(self, backend_url):
         if not all([self.BACKEND_URL, self.TOKEN]):
             self.logger.info("Set the backend URL and token in docker-compose to display a QR-Setup-Code")
             return
@@ -268,14 +268,19 @@ class Main:
                 return s.getsockname()[0]
         except Exception as e:
             return "127.0.0.1"
+        
 
     def run(self):
         self.logger.info("Starting the backend...")
-        self.show_qr_code()
-
         local_ip = self.get_local_ip()
-
-        self.logger.info(f"Server is running and available at: http://{local_ip}:{self.PORT}")
+        if not self.BACKEND_URL:
+            url = local_ip
+            self.logger.info(f"Uptime Mate backend locally available at: http://{url}:{self.PORT}")
+        else:
+            url = self.BACKEND_URL
+            self.logger.info(f"Uptime Mate backend externally available at: http://{url}")
+        self.show_qr_code(backend_url=url)
+        
         serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
 
 if __name__ == "__main__":
