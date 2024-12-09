@@ -27,7 +27,7 @@ class Main:
         self.PASSWORD = os.getenv("PASSWORD")
         self.TOKEN = os.getenv("TOKEN")
         self.MFA = os.getenv("MFA")
-        self.PORT = int(os.getenv("PORT"))
+        self.PORT = os.getenv("PORT")
         self.LOGIN_TOKEN = ""
 
         if not self.PORT:
@@ -261,7 +261,7 @@ class Main:
 
     def run(self):
         self.logger.info("Starting the backend...")
-        serve(self.app, host="0.0.0.0", port=self.PORT, threads=16)
+        serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
         self.logger.info(f"Backend available at: {self.BACKEND_URL}:{self.PORT}")
         self.show_qr_code()
 
