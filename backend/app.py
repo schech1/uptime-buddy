@@ -4,8 +4,9 @@ from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
 from waitress import serve
-import platform,json,psutil,cpuinfo
+import platform,psutil,cpuinfo
 import time
+import qrcode
 
 class Main:
     def __init__(self):
@@ -21,6 +22,7 @@ class Main:
         self.logger = logging.getLogger(__name__)
 
     def configure_api_client(self):
+        self.BACKEND_URL = os.getenv("BACKEND_URL")
         self.UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
         self.USERNAME = os.getenv("USERNAME")
         self.PASSWORD = os.getenv("PASSWORD")
@@ -32,10 +34,8 @@ class Main:
             raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
 
         # Initialize the Uptime Kuma API client    
-
         self.api = UptimeKumaApi(self.UPTIME_KUMA_URL, timeout= 120) # temporary quickfix
-
-  if self.MFA == "false" or self.MFA is None:
+        if self.MFA == "false" or self.MFA is None:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
                 self.logger.info("Successfully connected to Uptime Kuma instance")
@@ -233,13 +233,29 @@ class Main:
             return jsonify(systemInfo)
 
 
+    def show_qr_code(self):
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_M,
+            box_size=10,
+            border=4,
+        )
+        qr_content = {
+            "backend_url": self.BACKEND_URL,
+            "port": self.port
+            }                 
+
+        qr.add_data(jsonify(qr_content))
+        qr.make(fit=True)
+        return qr.print_ascii()
 
 
 
     def run(self):
         self.logger.info("Starting the backend...")
         serve(self.app, host="0.0.0.0", port=self.port, threads=16)
-        self.logger.info(f"Uptime Mate backend started on port: {self.port}")
+        self.logger.info(f"Backend available at: {self.BACKEND_URL}:{self.port}")
+        self.show_qr_code()
 
 if __name__ == "__main__":
     main = Main()
