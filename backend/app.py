@@ -22,7 +22,7 @@ class Main:
         self.logger = logging.getLogger(__name__)
 
     def configure_api_client(self):
-        self.BACKEND_URL = os.getenv("BACKEND_URL")
+        self.EXTERNAL_URL = os.getenv("EXTERNAL_URL")
         self.UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
         self.USERNAME = os.getenv("USERNAME")
         self.PASSWORD = os.getenv("PASSWORD")
@@ -238,7 +238,7 @@ class Main:
 
 
     def show_qr_code(self, backend_url):
-        if not all([self.BACKEND_URL, self.TOKEN]):
+        if not all([self.EXTERNAL_URL, self.TOKEN]):
             self.logger.info("Set the backend URL and token in docker-compose to display a QR-Setup-Code")
             return
         
@@ -250,7 +250,7 @@ class Main:
         )
         
         qr_content = {
-            "backend_url": self.BACKEND_URL,
+            "backend_url": self.EXTERNAL_URL,
             "port": self.PORT,
             "token": self.TOKEN
         }
@@ -273,11 +273,11 @@ class Main:
     def run(self):
         self.logger.info("Starting the backend...")
         local_ip = self.get_local_ip()
-        if not self.BACKEND_URL:
+        if not self.EXTERNAL_URL:
             url = local_ip
             self.logger.info(f"Uptime Mate backend locally available at: http://{url}:{self.PORT}")
         else:
-            url = self.BACKEND_URL
+            url = self.EXTERNAL_URL
             self.logger.info(f"Uptime Mate backend externally available at: http://{url}")
         self.show_qr_code(backend_url=url)
         
