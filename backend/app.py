@@ -4,13 +4,14 @@ from uptime_kuma_api import UptimeKumaApi, MonitorStatus
 import os
 import datetime
 from waitress import serve
-import platform,json,psutil,cpuinfo
+import platform,psutil, json,cpuinfo
 import time
+import qrcode
+import socket
 
 class Main:
     def __init__(self):
         self.app = Flask(__name__)
-        self.port = 5005
         self.setup_logging()
         self.configure_api_client()
         self.setup_routes()
@@ -21,12 +22,17 @@ class Main:
         self.logger = logging.getLogger(__name__)
 
     def configure_api_client(self):
+        self.EXTERNAL_URL = os.getenv("EXTERNAL_URL")
         self.UPTIME_KUMA_URL = os.getenv("UPTIME_KUMA_URL")
         self.USERNAME = os.getenv("USERNAME")
         self.PASSWORD = os.getenv("PASSWORD")
         self.TOKEN = os.getenv("TOKEN")
         self.MFA = os.getenv("MFA")
+        self.PORT = os.getenv("PORT")
         self.LOGIN_TOKEN = ""
+
+        if not self.PORT:
+            self.PORT = 5005
 
         if not all([self.UPTIME_KUMA_URL, self.TOKEN]):
             raise ValueError("UPTIME_KUMA_URL and TOKEN environment variables must be provided.")
@@ -231,13 +237,51 @@ class Main:
             return jsonify(systemInfo)
 
 
+    def show_qr_code(self, backend_url):
+        if not all([self.EXTERNAL_URL, self.TOKEN]):
+            self.logger.info("Set the backend URL and token in docker-compose to display a QR-Setup-Code")
+            return
+        
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_M,
+            box_size=12,
+            border=4,
+        )
+        
+        qr_content = {
+            "backend_url": self.EXTERNAL_URL,
+            "port": self.PORT,
+            "token": self.TOKEN
+        }
+        
+        qr.add_data(json.dumps(qr_content))
+        qr.make(fit=True)
+        self.logger.info("Your Setup-Code. Scan with Uptime Mate iOS App to configure your backend automatically")
+        qr.print_ascii()
+        return
 
-
+    def get_local_ip(self):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+                s.connect(("8.8.8.8", 80))
+                return s.getsockname()[0]
+        except Exception as e:
+            return "127.0.0.1"
+        
 
     def run(self):
         self.logger.info("Starting the backend...")
-        serve(self.app, host="0.0.0.0", port=self.port, threads=16)
-        self.logger.info(f"Uptime Mate backend started on port: {self.port}")
+        local_ip = self.get_local_ip()
+        if not self.EXTERNAL_URL:
+            url = local_ip
+            self.logger.info(f"Uptime Mate backend locally available at: http://{url}:{self.PORT}")
+        else:
+            url = self.EXTERNAL_URL
+            self.logger.info(f"Uptime Mate backend externally available at: {url}")
+        self.show_qr_code(backend_url=url)
+        
+        serve(self.app, host="0.0.0.0", port=int(self.PORT), threads=16)
 
 if __name__ == "__main__":
     main = Main()
