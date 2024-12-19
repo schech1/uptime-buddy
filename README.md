@@ -67,8 +67,7 @@ If you disabled authentication in Uptime Kuma, remove the two lines from the com
 Follow the steps below to set up the backend for Uptime Mate.
 
 
-## Docker Compose
-The recommended way is to install the container via docker-compose.
+## Docker Compose (recommended)
 
 Create a `docker-compose.yml` file with the following content to deploy the backend:
 
@@ -187,24 +186,11 @@ Uptime Mate supports different complications on the WatchFace.
 
 
 
-
-
 ## Data Privacy
 
 Uptime Mate does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.
 The Apple Watch or iOS apps do not store any data locally on the devices, except the address of your backend. This is needed to keep
 setting over reboots. 
-
-## Bucket list
-
-- [x] API token for backend authorization
-- [x] UI improvements on iOS app
-- [x] More Symbols for monitor types
-- [x] Nice AppStore page
-- [ ] Better looking complications
-- [ ] Better user feedback when backend is down
-- [ ] Communicate with Uptime Kuma directly (no additional docker container)
-
 
 
 ## Related Projects
