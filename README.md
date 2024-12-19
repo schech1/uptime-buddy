@@ -25,41 +25,6 @@ Uptime Mate, requires a lightweight docker backend to run.
 |<img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|
 
 
-
-## Last Update Changelog
-
-
-### Changes **App Version 1.1.4**
-
-
-With version 1.1.4 of backend and app, the InfoView got reworked.
-
-It will now show some system information about the backend host system.
-It will also show and warn if backendversion and appversion are not in sync.
-
-
-<table>
-  <tr>
-    <td style="text-align: center;">
-      <img src="images/sysinfo-2.png" alt="Circular" style="width: 100%;">
-      <p>Systeminfo</p>
-    </td>
-    <td style="text-align: center;">
-      <img src="images/sysinfo-1.png" alt="Corner" style="width: 100%;">
-      <p>Systeminfo Details</p>
-
-
-  </tr>
-</table>
-
-## Backend Compatibility
-**Be sure to pull the latest docker image**
-
-
-The current version (1.1.4) in the App Store is compatible with `schech1/uptime-buddy-api:latest` 
-
-
-
 ## Prerequisites in the Uptime Mate iOS-App
 
 For authentication, start the Uptime Mate iOS-App before you deploy the docker-container.
@@ -91,7 +56,7 @@ Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/loui
 
 Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
 
-If you disabled auth in Uptime Kuma, remove the two lines from the compose-file entirely:
+If you disabled authentication in Uptime Kuma, remove the two lines from the compose-file entirely:
 
 ```yaml
 - USERNAME=YOUR_UPTIME_KUMA_USERNAME
@@ -103,6 +68,8 @@ Follow the steps below to set up the backend for Uptime Mate.
 
 
 ## Docker Compose
+The recommended way is to install the container via docker-compose.
+
 Create a `docker-compose.yml` file with the following content to deploy the backend:
 
 ```yaml
@@ -148,11 +115,19 @@ This command will pull the necessary Docker image and start the backend service 
 
 ### Using docker run (alternative)
 
-*Hint: Remove `USERNAME` and `PASSWORD`, if auth is disabled in Uptime Kuma*
+*Hint: Remove `USERNAME` and `PASSWORD`, if authentication is disabled in Uptime Kuma*
 
 ```bash
-docker run -d --name uptime-buddy-api -p 5005:5005 -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL -e USERNAME=YOUR_UPTIME_KUMA_USERNAME -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD -e TOKEN=YOUR_TOKEN schech1/uptime-buddy-api:latest
-
+docker run -d --name uptime-buddy-api \
+  -p 5005:5005 \
+  -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL \
+  -e EXTERNAL_URL=YOUR_EXTERNAL_URL_FOR_THE_BACKEND \
+  -e USERNAME=YOUR_UPTIME_KUMA_USERNAME \
+  -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD \
+  -e TOKEN=SECRET_TOKEN \
+  -e PORT=5005 \
+  -e MFA=false \
+  schech1/uptime-buddy-api:latest
 ```
 
 
