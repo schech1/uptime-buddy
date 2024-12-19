@@ -106,17 +106,23 @@ Follow the steps below to set up the backend for Uptime Mate.
 Create a `docker-compose.yml` file with the following content to deploy the backend:
 
 ```yaml
+version: '3.8'
+
 services:
   uptime-buddy-api:
     image: schech1/uptime-buddy-api:latest
+    restart: always
     ports:
-      - "5005:5005"
+      - "5005:5005" # If you change the port, also change the PORT Env var
     environment:
       - UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL # e.g. http://192.168.1.34:3002/
-      - USERNAME=YOUR_UPTIME_KUMA_USERNAME # Optional: remove line if auth is disabled in Uptime Kuma
-      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD # Optional: remove line if auth is disabled in Uptime Kuma
+      - EXTERNAL_URL=YOUR_EXTERNAL_URL_FOR_THE_BACKEND # Optional: e.g. https://uptime.domain.com Use this if you want to use the Qr code feature
+      - USERNAME=YOUR_UPTIME_KUMA_USERNAME #Optional: remove line if auth is disabled in Uptime Kuma
+      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD #Optional: remove line if auth is disabled in Uptime Kuma
       - TOKEN=SECRET_TOKEN # Created by iOS-App
-      - MFA=true  # Is MFA enabled in Uptime Kuma?
+      - PORT=NEW_PORT # If you change the port above, adjust this var accordingly. E.g. 5003
+      - MFA=false #Is 2FA enabled in Uptime Kuma?
+
 ```
 Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
 
