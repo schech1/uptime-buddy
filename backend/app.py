@@ -42,6 +42,7 @@ class Main:
         if self.MFA == "false" or self.MFA is None:
             tkn = self.api.login(self.USERNAME, self.PASSWORD)
             if tkn:
+                self.LOGIN_TOKEN = tkn.get("token")
                 self.logger.info("Successfully connected to Uptime Kuma instance")
             else:
                 self.logger.warning("Could not connect to Uptime Kuma instance. Check URL and credentials!")
@@ -132,6 +133,7 @@ class Main:
         def get_beats(monitor_id):
             self.logger.info("Accessing /monitor/%d/beats endpoint", monitor_id)
             try:
+                self.api.login_by_token(self.LOGIN_TOKEN)
                 # Fetch the beats for the specified monitor ID
                 heartbeats = self.api.get_monitor_beats(monitor_id, 12)
                 last_10_heartbeats = heartbeats[-10:]
@@ -149,6 +151,7 @@ class Main:
                 total_count = 0
                 paused_count = 0
                 monitors = self.api.get_monitors()
+                self.api.login_by_token(self.LOGIN_TOKEN)
                 for monitor in monitors:
                     if not monitor.get("active"):
                         paused_count +=1
