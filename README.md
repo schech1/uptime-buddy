@@ -1,7 +1,5 @@
 # Uptime Mate
 
-**Uptime Buddy has been renamed to Uptime Mate.**
-
 
 <p align="center">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/schech1/uptime-buddy?style=flat">
@@ -16,6 +14,24 @@
 <a href="https://apps.apple.com/de/app/uptime-mate/id6503297780"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store Link"></a>
 </p>
 
+
+------------
+<table>
+  <tr>
+    <td align="center">
+      <strong>BREAKING NEWS</strong><br><br>
+      <strong>Uptime Mate is back.</strong><br><br>
+      The Apple Watch app has been completely rebuilt and is now compatible with <strong>Uptime Kuma v2</strong>.<br>
+      It now connects directly to Uptime Kuma via <strong>WebSockets</strong>, so the extra Docker backend is no longer required.<br><br>
+      This repository will be cleaned up and primarily used to share a <strong>TestFlight link (coming soon)</strong> for future beta releases.
+      Since the App got a complete rework, I expect bugs to appear at the beginning.
+      You can still use this repo to create issues for bugs found in the AppleWatch or iPhone App.
+    </td>
+  </tr>
+</table>
+
+
+------------
 Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
 Uptime Mate, requires a lightweight docker backend to run.
 
@@ -25,120 +41,30 @@ Uptime Mate, requires a lightweight docker backend to run.
 |<img src="images/uptime-buddy-1.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-5.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|<img src="images/uptime-buddy-6.png" alt="Apple Watch with Uptime Mate" style="width:90%;">|
 
 
-## Prerequisites in the Uptime Mate iOS-App
 
-For authentication, start the Uptime Mate iOS-App before you deploy the docker-container.
-On first start, a token will be generated and displayed in the app.
-Add the token to the docker-compose file or docker-run command.
-Then deploy the container as described below.
 
 
 ## Settings on the iOS App
-Before deploying the Docker container, open the Uptime Mate companion app on your iPhone.
-Follow the these steps to configure Uptime Mate:
 
-- Generate the token
-- Enter your backend address (Address where you host this container, including the port (e.g.http://your-server-ip:5005))
-- Test the backend
-- Copy the generated token into your `docker-compose.yml` and deploy it.
-- Send the setting to the Apple Watch. It will display your monitors from Uptime Kuma in the Apple Watch app
-- Check out the Watch Face complications
+- Set your UptimeKuma Instance in the iOS App and your login credentials.
+- Check the Backened
+- Configure the watch
+- Done
 
 
+<img src="images/uptime-buddy-ios.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
-<img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
-
-
-## Installation via Docker
-
-
-Uptime Mate requires a running instance of [Uptime Kuma](https://github.com/louislam/uptime-kuma)!
-
-Be sure to set up Uptime Kuma correctly and provide the address, username and password of your Uptime Kuma instance to the docker compose file.
-
-If you disabled authentication in Uptime Kuma, remove the two lines from the compose-file entirely:
-
-```yaml
-- USERNAME=YOUR_UPTIME_KUMA_USERNAME
-- PASSWORD=YOUR_UPTIME_KUMA_PASSWORD
-```
-
-
-Follow the steps below to set up the backend for Uptime Mate.
-
-
-## Docker Compose (recommended)
-
-Create a `docker-compose.yml` file with the following content to deploy the backend:
-
-```yaml
-version: '3.8'
-
-services:
-  uptime-buddy-api:
-    image: schech1/uptime-buddy-api:latest
-    restart: always
-    ports:
-      - "5005:5005" # If you change the port, also change the PORT Env var
-    environment:
-      - UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL # e.g. http://192.168.1.34:3002/
-      - EXTERNAL_URL=YOUR_EXTERNAL_URL_FOR_THE_BACKEND # Optional: e.g. https://uptime.domain.com Use this if you want to use the Qr code feature
-      - USERNAME=YOUR_UPTIME_KUMA_USERNAME #Optional: remove line if auth is disabled in Uptime Kuma
-      - PASSWORD=YOUR_UPTIME_KUMA_PASSWORD #Optional: remove line if auth is disabled in Uptime Kuma
-      - TOKEN=SECRET_TOKEN # Created by iOS-App
-      - PORT=NEW_PORT # If you change the port above, adjust this var accordingly. E.g. 5003
-      - MFA=false #Is 2FA enabled in Uptime Kuma?
-
-```
-Docker image on [DockerHub](https://hub.docker.com/repository/docker/schech1/uptime-buddy-api/general)
-
-The docker image supports `amd64` and `arm64` architecture.
-
-Tested on Raspberry Pi 5 and Intel NUC 10.
-
-Replace the environment variables with your actual Uptime Kuma URL, username, password and the generated token.
-
-
-## Deploying the Backend
-### Using docker-compose
-
-Save the docker-compose.yml file.
-
-Run the following command in the directory containing the docker-compose.yml file:
-
-```sh
-docker-compose up -d
-```
-
-This command will pull the necessary Docker image and start the backend service on port 5005.
-
-### Using docker run (alternative)
-
-*Hint: Remove `USERNAME` and `PASSWORD`, if authentication is disabled in Uptime Kuma*
-
-```bash
-docker run -d --name uptime-buddy-api \
-  -p 5005:5005 \
-  -e UPTIME_KUMA_URL=YOUR_UPTIME_KUMA_URL \
-  -e EXTERNAL_URL=YOUR_EXTERNAL_URL_FOR_THE_BACKEND \
-  -e USERNAME=YOUR_UPTIME_KUMA_USERNAME \
-  -e PASSWORD=YOUR_UPTIME_KUMA_PASSWORD \
-  -e TOKEN=SECRET_TOKEN \
-  -e PORT=5005 \
-  -e MFA=false \
-  schech1/uptime-buddy-api:latest
-```
 
 
 ## The Apple Watch and iOS App
 
 Uptime Mate consists of an iOS app and an Apple Watch app.
-The iOS app is needed to set up the backend address and token.
+The iOS app is needed to set up the backend address and login credentials
 When the iOS app is installed, the Apple Watch app can be installed via the Watch app of the iPhone.
 
-Uptime Mate comes with Complication and SmartStack support.
-The current update frequency of the Widgets is 15 minutes.
-In future versions this will frequency will be individually adjustable, to extend battery life of the Apple Watch.
+Uptime Mate comes with Complications and SmartStack support.
+The current update frequency of the Widgets is 15 minutes (due to WidgetKit limitations).
+
 
 ## Symbols on the Apple Watch
 
@@ -188,9 +114,17 @@ Uptime Mate supports different complications on the WatchFace.
 
 ## Data Privacy
 
-Uptime Mate does not save, share or forward any data. The data that is fetched from the backend is only displayed on your device.
-The Apple Watch or iOS apps do not store any data locally on the devices, except the address of your backend. This is needed to keep
-setting over reboots. 
+Uptime Mate does not save, share or forward any data.
+
+- Everything runs locally, no hidden backend, etc.
+- All data is just displayed and cached on your Apple Watch. All data is gone, when the App is deleted.
+- Only read requests are done to Websockets! (`getMonitors`, `getHearbeats`). 
+- No write/modifications are done on UptimeKuma. 
+
+
+The Apple Watch App requests the follwing data from Uptime Kuma:
+- List of Monitors with ```status, name, type, lastUpdate and id```
+- List of the last 60 Heartbeats (```ID, status, pingResponse, heartbeatTimestamp```)
 
 
 ## Related Projects
@@ -198,8 +132,6 @@ setting over reboots.
 This project is based on Uptime Kuma and uptime-kuma-api.
 
 [Uptime Kuma](https://github.com/louislam/uptime-kuma): A self-hosted monitoring tool to monitor uptime for websites, applications and services.
-
-[uptime-kuma-api](https://github.com/lucasheld/uptime-kuma-api): A Python API for Uptime Kuma.
 
 
 ## Contributing
