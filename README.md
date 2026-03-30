@@ -52,7 +52,7 @@ Uptime Mate, requires a lightweight docker backend to run.
 - Done
 
 
-<img src="images/uptime-buddy-ios.png" alt="Apple Watch with Uptime Buddy" style="width:30%;">
+<img src="images/uptime-buddy-ios.PNG" alt="Apple Watch with Uptime Buddy" style="width:30%;">
 
 
 
