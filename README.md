@@ -31,6 +31,12 @@
 </table>
 
 
+## Knows issues in v2.0
+
+- Currently works only with username and password auth
+- MFA is not supported yet
+
+
 ------------
 Uptime Mate is an uptime monitoring tool for your Apple Watch, designed to keep you informed about the status of your services. 
 Uptime Mate, requires a lightweight docker backend to run.
