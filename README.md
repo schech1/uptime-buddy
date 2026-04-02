@@ -31,10 +31,6 @@
 </table>
 
 
-## Knows issues in v2.0
-
-- Currently works only with username and password auth
-- MFA is not supported yet
 
 
 ------------
@@ -52,8 +48,9 @@ Uptime Mate, requires a lightweight docker backend to run.
 
 ## Settings on the iOS App
 
-- Set your UptimeKuma Instance in the iOS App and your login credentials.
-- Check the Backened
+- Set your Uptime Kuma Instance in the iOS App and your login credentials.
+- Connect to Kuma Instance
+- Enter 2FA code (if needed)
 - Configure the watch
 - Done
 
