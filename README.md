@@ -23,10 +23,25 @@
       <strong>Uptime Mate is back.</strong><br><br>
       The Apple Watch app has been completely rebuilt and is now compatible with <strong>Uptime Kuma v2</strong>.<br>
       It now connects directly to Uptime Kuma via <strong>WebSockets</strong>, so the extra Docker backend is no longer required.<br><br>
-      This repository will be cleaned up and primarily used to share a <strong>TestFlight link (coming soon)</strong> for future beta releases.
       Since the App got a complete rework, I expect bugs to appear at the beginning.
       You can still use this repo to create issues for bugs found in the AppleWatch or iPhone App.
     </td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <td align="center">
+      <strong>Experimental Push Updates</strong><br><br>
+      <strong>Real Time Updates for Complications</strong><br><br>
+      Since the update frequency of the WatchFace complications are limited by WatchOS, some status changes of your monitors might not be reflected by the complications.
+      There is not much that can be done by the app itself.
+      Therefore I was working on a solution which allows Uptime Kuma to push the updates to the Watch, using a relay server for notifications.
+      Those notifications are silent and not visible, they just trigger the complication to update.
+      I released a TestFlight version (https://testflight.apple.com/join/xbJJX4rS), that implements this highly experimental(!) feature.
+      Push Updates can be activated in the top menu of the iPhone app. The setup process is explain in the app itself.
+      Once activated, re-send the config to the watch.
   </tr>
 </table>
 
